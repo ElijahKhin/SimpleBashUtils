@@ -16,13 +16,21 @@ static void	recursive_convert_to_str(char **itoa, int n)
 	(*itoa)[index] = '\0';
 }
 
-char	*ft_itoa(int n)
+char	*s21_itoa(int n)
 {
 	char	*itoa;
+	char min_int[12] = "-2147483648";
 
-	if (n == MIN_INT)
-		return (ft_substr("-2147483648", 0, 12));
-	itoa = malloc(12);
+	itoa = malloc(11);
+	if (n == MIN_INT) {
+		int i = 0;
+		while(min_int[i] != '\0') {
+			itoa[i] = min_int[i];
+			i++;
+		}
+		itoa[i] = '\0';
+		return (itoa);
+	}
 	recursive_convert_to_str(&itoa, n);
 	return (itoa);
 }

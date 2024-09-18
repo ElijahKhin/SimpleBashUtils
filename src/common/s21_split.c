@@ -33,12 +33,12 @@ static void	fill_array(char ***array, char const *s, unsigned char c, int nor)
 		while (s[i] != c && s[i])
 			i++;
 		(*array)[j] = malloc(sizeof(char) * (i - start + 1));
-		ft_strlcpy((*array)[j++], s + start, i - start + 1);
+		s21_strlcpy((*array)[j++], s + start, i - start + 1);
 	}
 	(*array)[j] = NULL;
 }
 
-char	**ft_split(char const *s, char c)
+char	**s21_split(char const *s, char c)
 {
 	char	**array;
 	int		num_of_rows;

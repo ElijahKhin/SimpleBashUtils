@@ -1,6 +1,6 @@
 #include "s21_common.h"
 
-int	ft_atoi(const char *str)
+int	s21_atoi(const char *str)
 {
 	int	i;
 	int	sign;
@@ -16,7 +16,7 @@ int	ft_atoi(const char *str)
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	result = 0;
-	while (ft_isdigit(str[i]))
+	while (s21_isdigit(str[i]))
 		result = result * 10 + (str[i++] - '0');
 	return (result * sign);
 }

@@ -10,13 +10,13 @@ extern "C" {
 	# include <stdio.h>
 	
 	
-	int		ft_isdigit(int c);
-	size_t	ft_strlen(const char *s);
-	size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-	int		ft_atoi(const char *str);
-	char	*ft_substr(char const *s, unsigned int start, size_t len);
-	char	**ft_split(char const *s, char c);
-	char	*ft_itoa(int n);
+	int		s21_isdigit(int c);
+	size_t	s21_strlen(const char *s);
+	size_t	s21_strlcpy(char *dst, const char *src, size_t dstsize);
+	int		s21_atoi(const char *str);
+	char	*s21_substr(char const *s, unsigned int start, size_t len);
+	char	**s21_split(char const *s, char c);
+	char	*s21_itoa(int n);
 	
 	#endif
 #ifdef __cplusplus

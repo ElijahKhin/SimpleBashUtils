@@ -15,6 +15,7 @@ FLAGS = -Wall -Wextra -Werror -I.
 # --- TESTING S21_COMMON ---
 TCC = g++
 TESTS = s21_common_tests.cc
+TESTS_BIN = tests_bin_s21_common
 GCOV_REPORT_NAME = tests_coverage_s21_common
 
 
@@ -43,9 +44,9 @@ $(OBJ_FOLDER)/%.o: %.c $(HEADERS) Makefile
 	@printf "$(CURSIVE)Compiling source files 🚀... $(YELLOW)%-13s ---> $(NO_COLOR)%17.33s ✅\r" $< $@
 
 clean:
-	@echo "$(RED)Cleaning libft objects..."
+	@echo "$(RED)Cleaning $(NAME) objects..."
 	@rm -rf obj 
-	@echo "$(GRAY)$(CURSIVE)---libft objects are cleaned!\n"
+	@echo "$(GRAY)$(CURSIVE)---$(NAME) objects are cleaned!\n"
 .PHONY: clean
 
 clean_gcov:
@@ -54,19 +55,19 @@ clean_gcov:
 
 fclean: clean clean_gcov
 	@echo "$(RED)Cleaning $(NAME) & executable..."
-	@rm -rf *.a a.out .*.swp .DS_Store $(NAME) units
-	@echo "$(GRAY)$(CURSIVE)---libft staff is completely cleaned!\n"
+	@rm -rf *.a a.out .*.swp .DS_Store $(NAME) units $(TESTS_BIN)
+	@echo "$(GRAY)$(CURSIVE)---$(NAME) staff is completely cleaned!\n"
 .PHONY: fclean
 
 re: fclean all
 .PHONY: re
 
 tests: all
-	@$(TCC) -std=c++17 $(TEST) -L. $(NAME) -lgtest -lgtest_main -pthread -o $(TEST_BIN)
+	@$(TCC) -std=c++17 $(TESTS) -L. $(NAME) -lgtest -lgtest_main -pthread -o $(TESTS_BIN)
 .PHONY: test
 
 leaks: tests
-	@leaks --atExit -- ./$(TEST_BIN)
+	@leaks -quiet --atExit -- ./$(TESTS_BIN)
 .PHONY: leaks
 
 correct_format:

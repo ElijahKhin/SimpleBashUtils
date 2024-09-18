@@ -1,12 +1,12 @@
 #include "s21_common.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*s21_substr(char const *s, unsigned int start, size_t len)
 {
 	int		i;
 	char	*sub_str;
 
 	i = 0;
-	if (ft_strlen(s) < start)
+	if (s21_strlen(s) < start)
 		return (malloc(1));
 	else
 		sub_str = malloc(1);
