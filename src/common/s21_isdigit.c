@@ -1,4 +1,4 @@
-#include "common.h"
+#include "s21_common.h"
 
 int	ft_isdigit(int c)
 {

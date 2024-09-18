@@ -2,8 +2,8 @@
 extern "C" {
 #endif
 
-	#ifndef COMMON_H
-	# define COMMON_H
+	#ifndef S21_COMMON_H
+	# define S21_COMMON_H
 	# define MAX_INT 2147483647
 	# define MIN_INT -2147483648
 	# include <stdlib.h>

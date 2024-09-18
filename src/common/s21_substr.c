@@ -1,4 +1,4 @@
-#include "common.h"
+#include "s21_common.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

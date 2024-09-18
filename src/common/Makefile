@@ -1,17 +1,24 @@
-NAME = common.a
+# --- PROJECT S21_COMMON ---
+NAME = s21_common.a
 
+HEADERS = s21_common.h
 
-SRC = s21_strlen.c s21_isdigit.c s21_strlcpy.c \
-			s21_atoi.c s21_substr.c s21_split.c s21_itoa.c
+SRC = s21_strlen.c s21_isdigit.c s21_strlcpy.c s21_atoi.c s21_substr.c \
+			s21_split.c s21_itoa.c
 
 OBJ_FOLDER = obj
 OBJ = $(SRC:%.c=$(OBJ_FOLDER)/%.o)
 
-
 CC = gcc
 FLAGS = -Wall -Wextra -Werror -I.
 
+# --- TESTING S21_COMMON ---
+TCC = g++
+TESTS = s21_common_tests.cc
+GCOV_REPORT_NAME = tests_coverage_s21_common
 
+
+# --- COLORS FOR A GOOD-LOOKING ASSEMBLING ---
 GREEN = \033[32m
 YELLOW = \033[0;33m
 RED = \033[0;31m
@@ -19,11 +26,8 @@ GRAY = \033[2;37m
 CURSIVE = \033[3m
 NO_COLOR = \x1b[0m
 
-
-.PHONY: all clean fclean re
-
-
 all: $(NAME)
+.PHONY: all
 
 $(NAME): $(OBJ_FOLDER) $(OBJ)
 	@ar rc $@ obj/*	
@@ -34,7 +38,7 @@ $(NAME): $(OBJ_FOLDER) $(OBJ)
 $(OBJ_FOLDER):
 	@mkdir $(OBJ_FOLDER)
 
-$(OBJ_FOLDER)/%.o: %.c common.h Makefile
+$(OBJ_FOLDER)/%.o: %.c $(HEADERS) Makefile
 	@$(CC) -c $(FLAGS) $< -o $@
 	@printf "$(CURSIVE)Compiling source files 🚀... $(YELLOW)%-13s ---> $(NO_COLOR)%17.33s ✅\r" $< $@
 
@@ -42,10 +46,43 @@ clean:
 	@echo "$(RED)Cleaning libft objects..."
 	@rm -rf obj 
 	@echo "$(GRAY)$(CURSIVE)---libft objects are cleaned!\n"
+.PHONY: clean
 
-fclean: clean
+clean_gcov:
+	@rm -rf $(GCOV_REPORT_NAME) $(GCOV_REPORT_NAME).info *.gcda *.gcno report
+.PHONY: clean_gcov
+
+fclean: clean clean_gcov
 	@echo "$(RED)Cleaning $(NAME) & executable..."
 	@rm -rf *.a a.out .*.swp .DS_Store $(NAME) units
 	@echo "$(GRAY)$(CURSIVE)---libft staff is completely cleaned!\n"
+.PHONY: fclean
 
 re: fclean all
+.PHONY: re
+
+tests: all
+	@$(TCC) -std=c++17 $(TEST) -L. $(NAME) -lgtest -lgtest_main -pthread -o $(TEST_BIN)
+.PHONY: test
+
+leaks: tests
+	@leaks --atExit -- ./$(TEST_BIN)
+.PHONY: leaks
+
+correct_format:
+	@clang-format -i $(SRC) $(TESTS) $(HEADERS)
+.PHONY: correct_format
+
+check_format:
+	@clang-format --dry-run --Werror $(SRC) $(TEST) $(HEADES)
+.PHONY: check_format
+	
+report/index.html: $(NAME)
+	@$(TCC) -std=c++17 -lgtest --coverage $(TESTS) $(SRC) -L. $(NAME) -o $(GCOV_REPORT_NAME)
+	@./$(GCOV_REPORT_NAME)
+	@lcov --no-external --no-recursion -c --directory . -o $(GCOV_REPORT_NAME).info
+	@genhtml -o report $(GCOV_REPORT_NAME).info
+
+open_gcov_report: report/index.html $(TESTS)
+	@open report/index.html
+.PHONY: open_gcov_report

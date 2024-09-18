@@ -1,4 +1,4 @@
-#include "common.h"
+#include "s21_common.h"
 
 static int	get_num_of_rows(char const *s, unsigned char c)
 {

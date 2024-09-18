@@ -1,4 +1,4 @@
-#include "common.h"
+#include "s21_common.h"
 
 static void	recursive_convert_to_str(char **itoa, int n)
 {
