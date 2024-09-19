@@ -2,7 +2,7 @@ NAME = s21_cat
 
 SRC = s21_cat.c
 
-PREREQ = $(SRC) s21_cat.h Makefile ../common/common.a
+PREREQ = $(SRC) s21_cat.h Makefile ../s21_common/s21_common.a
 
 CC = gcc
 FLAGS = -std=c11 -Werror -Wextra -Wall -I.
@@ -19,22 +19,22 @@ RESET = \033[0m
 all: common $(NAME)
 
 $(NAME): $(PREREQ) 
-	@$(CC) $(FLAGS) $(SRC) -L. ../common/common.a -o $@
+	@$(CC) $(FLAGS) $(SRC) -L. ../s21_common/s21_common.a -o $@
 	@echo "----------------------------------------------------------\n"
 	@printf "$(CURSIVE)Assembling $(NAME) ⚙️ ... $(GREEN)DONE! 🥂$(RESET)"
 	@echo "\n"
 
 common:
-	@make -C ../common/
-.PHONY: common
+	@make -C ../s21_common/
+.PHONY: s21_common
 
 clean:
-	@make clean -C ../common/
+	@make clean -C ../s21_common/
 	@rm -rf obj
 .PHONY: clean
 
 fclean: clean
-	@make fclean -C ../common/
+	@make fclean -C ../s21_common/
 	@rm -rf *.a a.out .*.swp *.*.gch .DS_Store test_bin a.out.dSYM $(NAME)
 	@echo "$(GRAY)$(CURSIVE)---$(NAME) staff is completely cleaned!\n"
 
