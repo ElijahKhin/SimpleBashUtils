@@ -3,8 +3,8 @@ NAME = s21_common.a
 
 HEADERS = s21_common.h
 
-SRC = s21_strlen.c s21_isdigit.c s21_strlcpy.c s21_atoi.c s21_substr.c \
-			s21_split.c s21_itoa.c
+SRC = s21_strlen.c s21_isdigit.c s21_strlcpy.c s21_atoi.c s21_split.c \
+			s21_itoa.c
 
 OBJ_FOLDER = obj
 OBJ = $(SRC:%.c=$(OBJ_FOLDER)/%.o)
