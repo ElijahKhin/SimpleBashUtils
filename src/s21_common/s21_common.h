@@ -8,6 +8,7 @@ extern "C" {
 	# define MIN_INT -2147483648
 	# include <stdlib.h>
 	# include <stdio.h>
+	# include <string.h>
 	
 	
 	int		s21_isdigit(int c);
