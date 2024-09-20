@@ -27,6 +27,10 @@ GRAY = \033[2;37m
 CURSIVE = \033[3m
 NO_COLOR = \x1b[0m
 
+# --- JUST TRASH --- 
+GCOV_TRASH = $(GCOV_REPORT_NAME) $(GCOV_REPORT_NAME).info *.gcda *.gcno report 
+OTHER_TRASH = *.a a.out .*.swp .DS_Store $(NAME) units $(TESTS_BIN) file_with_tests_trash
+
 all: $(NAME)
 .PHONY: all
 
@@ -50,12 +54,12 @@ clean:
 .PHONY: clean
 
 clean_gcov:
-	@rm -rf $(GCOV_REPORT_NAME) $(GCOV_REPORT_NAME).info *.gcda *.gcno report
+	@rm -rf  $(GCOV_TRASH)
 .PHONY: clean_gcov
 
 fclean: clean clean_gcov
 	@echo "$(RED)Cleaning $(NAME) & executable..."
-	@rm -rf *.a a.out .*.swp .DS_Store $(NAME) units $(TESTS_BIN)
+	@rm -rf $(OTHER_TRASH)
 	@echo "$(GRAY)$(CURSIVE)---$(NAME) staff is completely cleaned!\n"
 .PHONY: fclean
 
@@ -79,7 +83,7 @@ check_format:
 .PHONY: check_format
 	
 report/index.html: $(NAME)
-	@$(TCC) -std=c++17 -lgtest --coverage $(TESTS) $(SRC) -L. $(NAME) -o $(GCOV_REPORT_NAME)
+	@$(TCC) -std=c++17 -Wno-deprecated -lgtest --coverage $(TESTS) $(SRC) -L. $(NAME) -o $(GCOV_REPORT_NAME)
 	@./$(GCOV_REPORT_NAME)
 	@lcov --no-external --no-recursion -c --directory . -o $(GCOV_REPORT_NAME).info
 	@genhtml -o report $(GCOV_REPORT_NAME).info

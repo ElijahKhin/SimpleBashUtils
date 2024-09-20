@@ -1,5 +1,6 @@
 #include <string.h>
 #include <gtest/gtest.h>
+#include <fstream>
 
 #include "s21_common.h"
 

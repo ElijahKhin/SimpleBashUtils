@@ -7,13 +7,13 @@ static void printFlags(flags* inputInfo) {
 	printf("squeeze blank rows: %d\n", inputInfo->squeezeBlank);
 	printf("nonPrinting Tabs: %d\n", inputInfo->nonPrintingTabs);
 	printf("nonPrinting: %d\n", inputInfo->nonPrinting);
-	printf("is system GNU: %d\n", inputInfo->gnuSystem);
 }
 
 int main(int argc, char* argv[]) {
-	flags inputInfo = {0,0,0,0,0,0,0};
+	flags inputInfo = {0};
 
-	ParseFlagsInfo(&argv, &inputInfo);
+	if (argc == 1) { fprintf(stderr, ERROR_NO_ARGS); exit(1); }
+	ParseFlags(&argv, &inputInfo);
 	printFlags(&inputInfo);
 	return argc;
 }

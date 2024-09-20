@@ -21,7 +21,7 @@ char	*s21_itoa(int n)
 	char	*itoa;
 	char min_int[12] = "-2147483648";
 
-	itoa = malloc(11);
+	itoa = (char *)malloc(11);
 	if (n == MIN_INT) {
 		int i = 0;
 		while(min_int[i] != '\0') {

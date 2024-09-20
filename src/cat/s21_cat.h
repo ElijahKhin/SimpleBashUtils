@@ -3,6 +3,9 @@
 # include <stdbool.h>
 # include "../s21_common/s21_common.h" 
 
+# define ERROR_NO_ARGS "Error [s21_cat.c -> main]: The program was launched without arguments\n"
+# define ERROR_NO_FLAG "Error [flagsParsing.c]: There is no such flag\n"
+
 typedef struct flags {
 	bool rowNumNonblank;
 	bool nonPrintingEnd;
@@ -10,19 +13,11 @@ typedef struct flags {
 	bool squeezeBlank;
 	bool nonPrintingTabs;
 	bool nonPrinting; 
-	bool gnuSystem;
 } flags;
 
 /* Getting Valid Flags */
-void CheckFlags(char* flag, flags* inputInfo);
-void CheckGNUflags(char* flag, flags* inputInfo);
-bool isGNUflag(char c);
-void GetFlags(char* flag, flags* inputInfo);
-void ExcludeIncompatibleFlags(flags* inputInfo);
-void whichSystem(char c, flags* inputInfo);
-void ParseFlagsInfo(char*** argv, flags* inputInfo);
+void ParseFlags(char*** argv, flags* inputInfo);
 
 /*Getting Something Else*/
-
 
 #endif
