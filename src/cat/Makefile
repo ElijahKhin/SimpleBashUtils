@@ -1,6 +1,6 @@
 NAME = s21_cat
 
-SRC = s21_cat.c
+SRC = s21_cat.c flagsParsing.c
 
 PREREQ = $(SRC) s21_cat.h Makefile ../s21_common/s21_common.a
 
