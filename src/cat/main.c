@@ -10,10 +10,11 @@ static void printFlags(flags* inputInfo) {
 }
 
 int main(int argc, char* argv[]) {
+	int flagIndex = 1;
 	flags inputInfo = {0};
 
 	if (argc == 1) { fprintf(stderr, ERROR_NO_ARGS); exit(1); }
-	ParseFlags(&argv, &inputInfo);
+	ParseFlags(argc, &flagIndex, &argv, &inputInfo);
 	printFlags(&inputInfo);
 	return argc;
 }

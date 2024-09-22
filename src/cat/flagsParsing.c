@@ -16,7 +16,7 @@ static void GetShortFlag(char* flag, flags* inputInfo) {
 			inputInfo->nonPrintingTabs = inputInfo->nonPrinting = 1;
 		else if (flag[i] == 'T') inputInfo->nonPrintingTabs = 1;
 		else if (flag[i] == 'v') inputInfo->nonPrinting = 1;
-		else { fprintf(stderr, ERROR_NO_FLAG); exit(1); };
+		else { fprintf(stderr, "%s%c\n%s", ERROR_NO_FLAG, flag[i], USAGE); exit(1); };
 	}
 }
 
@@ -24,9 +24,8 @@ static void GetLongFlag(char* flag, flags* inputInfo) {
 	if (!strcmp(flag, "--number-nonblank")) inputInfo->rowNumNonblank = 1;
 	else if (!strcmp(flag, "--number")) inputInfo->rowNum = 1;
 	else if (!strcmp(flag, "--squeeze-blank")) inputInfo->squeezeBlank = 1;
-	else { fprintf(stderr, ERROR_NO_FLAG); exit(1); };
+	else { fprintf(stderr, "%s%s\n%s", ERROR_NO_FLAG, flag+2, USAGE); exit(1); };
 }
-
 
 static void GetFlags(char* flag, flags* inputInfo) {
 	if (isLongFlag(flag[1])) GetLongFlag(flag, inputInfo);
@@ -38,9 +37,11 @@ static void ExcludeIncompatibleFlags(flags* inputInfo) {
 		inputInfo->rowNum = 0;
 }
 
-void ParseFlags(char*** argv, flags* inputInfo) {
-	int i = 1;
-	for(; (*argv)[i][0] == '-'; i++)
-		GetFlags((*argv)[i], inputInfo);
+void ParseFlags(int argc, int* flagIndex, char*** argv, flags* inputInfo) {
+	for(; (*argv)[*flagIndex][0] == '-'; (*flagIndex)++) {
+		GetFlags((*argv)[*flagIndex], inputInfo);
+		if (*flagIndex + 1 == argc) { fprintf(stderr, ERROR_NO_FILE), exit(1); }
+	}
 	ExcludeIncompatibleFlags(inputInfo);
 }
+

@@ -6,11 +6,13 @@ HEADERS = s21_common.h
 SRC = s21_strlen.c s21_isdigit.c s21_strlcpy.c s21_atoi.c s21_split.c \
 			s21_itoa.c
 
+PREREQ = $(HEADERS) Makefile
+
 OBJ_FOLDER = obj
 OBJ = $(SRC:%.c=$(OBJ_FOLDER)/%.o)
 
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -I.
+FLAGS = -std=c11 -Wall -Wextra -Werror -I.
 
 # --- TESTING S21_COMMON ---
 TCC = g++
@@ -28,8 +30,8 @@ CURSIVE = \033[3m
 NO_COLOR = \x1b[0m
 
 # --- JUST TRASH --- 
-GCOV_TRASH = $(GCOV_REPORT_NAME) $(GCOV_REPORT_NAME).info *.gcda *.gcno report 
-OTHER_TRASH = *.a a.out .*.swp .DS_Store $(NAME) units $(TESTS_BIN) file_with_tests_trash
+GCOV_TRASH = $(GCOV_REPORT_NAME) $(GCOV_REPORT_NAME).info *.gcda *.gcno report *.gch
+OTHER_TRASH = obj *.a a.out .*.swp .DS_Store $(NAME) units $(TESTS_BIN) file_with_tests_trash
 
 all: $(NAME)
 .PHONY: all
@@ -38,29 +40,22 @@ $(NAME): $(OBJ_FOLDER) $(OBJ)
 	@ar rc $@ obj/*	
 	@ranlib $(NAME)
 	@printf "$(CURSIVE)Compiling source files 🚀...  %s is successfully assembled! 🥂%-17s" $(NAME) ""
-	@echo "\n"
 
 $(OBJ_FOLDER):
 	@mkdir $(OBJ_FOLDER)
 
-$(OBJ_FOLDER)/%.o: %.c $(HEADERS) Makefile
+$(OBJ_FOLDER)/%.o: %.c $(PREREQ)
 	@$(CC) -c $(FLAGS) $< -o $@
 	@printf "$(CURSIVE)Compiling source files 🚀... $(YELLOW)%-13s ---> $(NO_COLOR)%17.33s ✅\r" $< $@
-
-clean:
-	@echo "$(RED)Cleaning $(NAME) objects..."
-	@rm -rf obj 
-	@echo "$(GRAY)$(CURSIVE)---$(NAME) objects are cleaned!\n"
-.PHONY: clean
 
 clean_gcov:
 	@rm -rf  $(GCOV_TRASH)
 .PHONY: clean_gcov
 
-fclean: clean clean_gcov
+fclean: clean_gcov
 	@echo "$(RED)Cleaning $(NAME) & executable..."
 	@rm -rf $(OTHER_TRASH)
-	@echo "$(GRAY)$(CURSIVE)---$(NAME) staff is completely cleaned!\n"
+	@echo "$(GRAY)$(CURSIVE)---$(NAME) staff is completely cleaned!\n$(RESET)"
 .PHONY: fclean
 
 re: fclean all
