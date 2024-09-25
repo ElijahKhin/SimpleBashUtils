@@ -18,6 +18,7 @@ extern "C" {
 	char	*s21_substr(char const *s, unsigned int start, size_t len);
 	char	**s21_split(char const *s, char c);
 	char	*s21_itoa(int n);
+	void	s21_open_file(FILE** file, char* file_name, char* method);
 	
 	#endif
 #ifdef __cplusplus

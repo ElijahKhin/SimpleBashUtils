@@ -3,7 +3,7 @@ NAME = s21_cat
 
 HEADERS = s21_cat.h
 
-SRC = flagsParsing.c
+SRC = flagsParsing.c printData.c
 
 PREREQ = s21_cat.h Makefile ../s21_common/s21_common.a
 
