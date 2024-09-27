@@ -55,12 +55,14 @@ static void CheckIfTab(bool isFlagTabs, char* c) {
 	}
 }
 
-//static void PrintChar(bool isFlagNonPrinting, char c) {
-//	if (isFlagNonPrinting) {
-//		if (c < 32 && c != 9 && c != 10)
-//
-//	}
-//}
+static void PrintChar(bool isFlagNonPrinting, char c) {
+	if (isFlagNonPrinting) {
+		if (c < 32 && c != 9 && c != 10) {
+			c += 64; fprintf(stdout, "^");
+		}
+	}
+	fprintf(stdout, "%c", c);
+}
 
 static void PrintData(FILE* file, flags* inputInfo) {
 	RowPart row_part;
@@ -81,11 +83,9 @@ static void PrintData(FILE* file, flags* inputInfo) {
 		if (row_part == START && (inputInfo->rowNumNonblank || inputInfo->rowNum)) {
 			PrintRowNumber(&row_num);
 		}
-		
 		CheckIfNewLine(c, &row_i, inputInfo->nonPrintingEnd);
 		CheckIfTab(inputInfo->nonPrintingTabs, &c);
-		fprintf(stdout, "%c", c);
-//		PrintChar(inputInfo->nonPrinting, c); 
+		PrintChar(inputInfo->nonPrinting, c); 
 		c = getc(file);
 	}
 	if (squeeze_i) ProcessLastSeriaOfEmptyLines(inputInfo, &row_num);
