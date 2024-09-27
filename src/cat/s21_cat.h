@@ -10,10 +10,6 @@ extern "C" {
 	# define ERROR_NO_FLAG "s21_cat: illegal option -- "
 	# define ERROR_NO_FILE "s21_cat: no any file name\n"
 	# define USAGE "usage: s21_cat [-benstv] [file ...]\n"
-//  # define EMPTY_ROW 0
-//	#	define ROW_START 1
-//	# define ROW_MIDDLE 2
-//	#	define ROW_END 3
 	
 	typedef struct flags {
 		bool rowNumNonblank;
