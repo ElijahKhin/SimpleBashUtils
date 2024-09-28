@@ -315,6 +315,19 @@ TEST(ALL_FLAGS, ALL_LONG_AND_SHORT_SEP) {
 	freeTab(argv);
 }
 
+TEST(CAT, NO_FLAGS) {
+	FILE* s21_cat = popen("./s21_cat dummy.c", "r");
+	FILE* unx_cat = popen("cat dummy.c", "r");
+
+	if (!s21_cat || !unx_cat) exit(1);
+	char s21_c = getc(s21_cat);
+	char unx_c = getc(unx_cat);
+	while (s21_c != EOF && unx_c != EOF) {
+		ASSERT_EQ(s21_c, unx_c);
+		s21_c = getc(s21_cat), unx_c = getc(unx_cat);
+	}
+}
+
 int main(int argc, char** argv) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
