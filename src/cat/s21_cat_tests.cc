@@ -326,6 +326,8 @@ TEST(CAT, NO_FLAGS) {
 		ASSERT_EQ(s21_c, unx_c);
 		s21_c = getc(s21_cat), unx_c = getc(unx_cat);
 	}
+	pclose(s21_cat);
+	pclose(unx_cat);
 }
 
 int main(int argc, char** argv) {

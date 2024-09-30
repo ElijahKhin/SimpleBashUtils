@@ -68,6 +68,10 @@ tests: all
 	@$(TCC) -std=c++17 -I. $(TESTS) $(OBJ) ../s21_common/s21_common.a -lgtest -lgtest_main -pthread -o $(TESTS_BIN)
 .PHONY: test
 
+show_tests_result: tests
+	@./$(TESTS_BIN)
+.PHONY: launch_test_bin
+
 leaks: tests
 	@make leaks -C ../s21_common/
 	@leaks -quiet --atExit -- ./$(TESTS_BIN)
