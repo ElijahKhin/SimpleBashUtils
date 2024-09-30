@@ -5,6 +5,7 @@ static bool isLongFlag(char c) {
 }
 
 static void GetShortFlag(char* flag, flags* inputInfo) {
+	if (!strcmp("-", flag)) { fprintf(stdout, "%s\n", ERROR_STDIN); exit(1); };
 	for (int i = 1; flag[i]; i++) {
 		if (flag[i] == 'b') inputInfo->rowNumNonblank = 1; 
 		else if (flag[i] == 'e') 
@@ -44,4 +45,3 @@ void ParseFlags(int argc, int* flagIndex, char*** argv, flags* inputInfo) {
 	}
 	ExcludeIncompatibleFlags(inputInfo);
 }
-

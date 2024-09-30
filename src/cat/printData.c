@@ -1,6 +1,6 @@
 #include "s21_cat.h"
 
-static void WhichRowPart(int* row_i, char c, RowPart* row_part) {
+static void WhichRowPart(int* row_i, int c, RowPart* row_part) {
 	if (!(*row_i) && c == '\n') *row_part = EMPTY;
 	else if (!(*row_i) && c != '\n') *row_part = START;
 	else if (*row_i && c != '\n') *row_part = MIDDLE;
@@ -31,7 +31,7 @@ static void PrintRowNumAfterSeriaOfEmplyLines(flags* inputInfo, int* squeeze_i, 
 	(*squeeze_i) = 0;
 }
 
-static void CheckIfNewLine(char c, int* row_i, bool isFlagNonPrintingEnd) {
+static void CheckIfNewLine(int c, int* row_i, bool isFlagNonPrintingEnd) {
 	if (c == '\n') {
 		(*row_i) = 0; 
 		if (isFlagNonPrintingEnd) fprintf(stdout, "$");
@@ -48,18 +48,18 @@ static void ProcessLastSeriaOfEmptyLines(flags* inputInfo, int* row_num) {
 	fprintf(stdout, "\n");
 }
 
-static void CheckIfTab(bool isFlagTabs, char* c) {
+static void CheckIfTab(bool isFlagTabs, int* c) {
 	if (isFlagTabs && *c == '\t') {
 		fprintf(stdout, "^");
 		*c = 'I';
 	}
 }
 
-static void PrintChar(bool isFlagNonPrinting, char c) {
+static void PrintChar(bool isFlagNonPrinting, int c) {
 	if (isFlagNonPrinting) {
-		if (c < 32 && c != 9 && c != 10) {
-			c += 64; fprintf(stdout, "^");
-		}
+		if (c == 127) {c -= 64; fprintf(stdout, "^");}
+		else if (c > 127 && c < 160) {c -= 64; fprintf(stdout, "M-^");}
+		else if (c < 32 && c != 9 && c != 10) {c += 64; fprintf(stdout, "^");}
 	}
 	fprintf(stdout, "%c", c);
 }
@@ -69,7 +69,7 @@ static void PrintData(FILE* file, flags* inputInfo) {
 	int row_num = 1;
 	int squeeze_i = 0;
 	int row_i = 0;
-	char c = getc(file);
+	int c = getc(file);
 
 	while (c != EOF) {
 		WhichRowPart(&row_i, c, &row_part);

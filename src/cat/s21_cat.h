@@ -10,6 +10,7 @@ extern "C" {
 	# define ERROR_NO_FLAG "s21_cat: illegal option -- "
 	# define ERROR_NO_FILE "s21_cat: no any file name\n"
 	# define USAGE "usage: s21_cat [-benstv] [file ...]\n"
+	# define ERROR_STDIN "s21_cat: stdio request is not supported in this version of cat\n"
 	
 	typedef struct flags {
 		bool rowNumNonblank;
