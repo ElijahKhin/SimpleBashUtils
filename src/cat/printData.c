@@ -18,7 +18,7 @@ static int SqueezeIfEmpty(bool isFlagSqueeze, RowPart row_part, int* squeeze_i) 
 
 static void PrintRowNumForBlankIfNotSqueeze(flags* inputInfo, RowPart row_part, int* row_num) {
 	if (inputInfo->rowNum && row_part == EMPTY) PrintRowNumber(row_num);
-	if (inputInfo->nonPrintingEnd && row_part == EMPTY) fprintf(stdout, "$");
+//	if (inputInfo->nonPrintingEnd && row_part == EMPTY) fprintf(stdout, "$");
 }
 
 static void PrintRowNumAfterSeriaOfEmplyLines(flags* inputInfo, int* squeeze_i, int* row_num) {
@@ -31,10 +31,11 @@ static void PrintRowNumAfterSeriaOfEmplyLines(flags* inputInfo, int* squeeze_i, 
 	(*squeeze_i) = 0;
 }
 
-static void CheckIfNewLine(int c, int* row_i, bool isFlagNonPrintingEnd) {
+static void CheckIfNewLine(int c, int* row_i, RowPart row_part, flags* inputInfo) {
 	if (c == '\n') {
 		(*row_i) = 0; 
-		if (isFlagNonPrintingEnd) fprintf(stdout, "$");
+		if (inputInfo->rowNumNonblank && inputInfo->nonPrintingEnd && row_part == EMPTY) fprintf(stdout, "%6c\t", ' ');
+		if (inputInfo->nonPrintingEnd) fprintf(stdout, "$");
 	}
 	else (*row_i)++;
 }
@@ -83,7 +84,7 @@ static void PrintData(FILE* file, flags* inputInfo) {
 		if (row_part == START && (inputInfo->rowNumNonblank || inputInfo->rowNum)) {
 			PrintRowNumber(&row_num);
 		}
-		CheckIfNewLine(c, &row_i, inputInfo->nonPrintingEnd);
+		CheckIfNewLine(c, &row_i, row_part, inputInfo);
 		CheckIfTab(inputInfo->nonPrintingTabs, &c);
 		PrintChar(inputInfo->nonPrinting, c); 
 		c = getc(file);

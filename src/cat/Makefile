@@ -30,7 +30,7 @@ RESET = \033[0m
 
 # --- JUST TRASH --- 
 GCOV_TRASH = $(GCOV_REPORT_NAME) $(GCOV_REPORT_NAME).info *.gcda *.gcno report  *.gch
-OTHER_TRASH = obj *.a a.out .*.swp .DS_Store $(NAME) units $(TESTS_BIN) file_with_tests_trash
+OTHER_TRASH = obj *.a a.out .*.swp .DS_Store $(NAME) units $(TESTS_BIN) file_with_tests_trash py_res.csv
 
 all: s21_common $(NAME)
 
@@ -63,7 +63,12 @@ fclean: clean_gcov
 re: fclean all
 .PHONY: re
 
-tests: all
+unx_full_coverage_combo.csv: py_script
+
+py_script: all
+	python3 cat_test_script.py
+
+tests: unx_full_coverage_combo.csv 
 	@make tests -C ../s21_common/
 	@$(TCC) -std=c++17 -I. $(TESTS) $(OBJ) ../s21_common/s21_common.a -lgtest -lgtest_main -pthread -o $(TESTS_BIN)
 .PHONY: test
