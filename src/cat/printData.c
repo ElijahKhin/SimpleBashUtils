@@ -18,7 +18,6 @@ static int SqueezeIfEmpty(bool isFlagSqueeze, RowPart row_part, int* squeeze_i) 
 
 static void PrintRowNumForBlankIfNotSqueeze(flags* inputInfo, RowPart row_part, int* row_num) {
 	if (inputInfo->rowNum && row_part == EMPTY) PrintRowNumber(row_num);
-//	if (inputInfo->nonPrintingEnd && row_part == EMPTY) fprintf(stdout, "$");
 }
 
 static void PrintRowNumAfterSeriaOfEmplyLines(flags* inputInfo, int* squeeze_i, int* row_num) {
