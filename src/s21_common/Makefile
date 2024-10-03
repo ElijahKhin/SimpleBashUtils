@@ -62,7 +62,7 @@ re: fclean all
 .PHONY: re
 
 tests: all
-	@$(TCC) -std=c++17 $(TESTS) -L. $(NAME) -lgtest -lgtest_main -pthread -o $(TESTS_BIN)
+	$(TCC) -std=c++17 $(TESTS) -L. $(NAME) -lgtest -lgtest_main -pthread -o $(TESTS_BIN)
 .PHONY: test
 
 leaks: tests
@@ -83,6 +83,6 @@ report/index.html: $(NAME)
 	@lcov --no-external --no-recursion -c --directory . -o $(GCOV_REPORT_NAME).info
 	@genhtml -o report $(GCOV_REPORT_NAME).info
 
-open_gcov_report: report/index.html $(TESTS)
+open_gcov_report: all report/index.html $(TESTS)
 	@open report/index.html
 .PHONY: open_gcov_report

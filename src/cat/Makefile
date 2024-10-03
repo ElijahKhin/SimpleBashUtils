@@ -30,7 +30,7 @@ RESET = \033[0m
 
 # --- JUST TRASH --- 
 GCOV_TRASH = $(GCOV_REPORT_NAME) $(GCOV_REPORT_NAME).info *.gcda *.gcno report  *.gch
-OTHER_TRASH = obj *.a a.out .*.swp .DS_Store $(NAME) units $(TESTS_BIN) file_with_tests_trash py_res.csv
+OTHER_TRASH = obj *.a a.out .*.swp .DS_Store $(NAME) units $(TESTS_BIN) file_with_tests_trash py_res.csv unx_full_coverage_combo.csv
 
 all: s21_common $(NAME)
 

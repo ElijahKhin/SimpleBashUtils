@@ -155,6 +155,21 @@ TEST(s21_strlcpy, all_tests) {
 	EXPECT_EQ(s21_strlcpy(dest, "1", 0) == 1 && dest[0] == 0, 1); memset(dest, 'A', 10);
 }
 
+TEST(s21_open_file, crashtest) {
+	FILE* file;
+
+    EXPECT_EXIT(s21_open_file(&file, "ghost_file", "r"), ::testing::ExitedWithCode(1), "not opened");
+}
+
+TEST(s21_open_file, normal_test) {
+	FILE* file;
+
+	s21_open_file(&file, "Makefile", "r");
+	EXPECT_FALSE(file == NULL);
+	fclose(file);
+}
+
+
 int main(int argc, char** argv) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
