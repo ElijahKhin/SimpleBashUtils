@@ -8,6 +8,7 @@ extern "C" {
 	
 	# define ERROR_NO_ARGS "Error [s21_grep.c -> main]: The program was launched without arguments\n"
 	# define ERROR_NO_FLAG "s21_grep: illegal option -- "
+	# define ERROR_MALLOC "s21_grep: wrong memory allocation"
 	# define ERROR_NO_FILE "s21_grep: no any file name\n"
 	# define USAGE "usage: s21_grep [-eivcln] [file ...]\n"
 	# define ERROR_STDIN "s21_grep: stdin request is not supported in this version of cat\n"
