@@ -22,12 +22,13 @@ static void GetFlags(char* flag, flags* inputInfo) {
 //		inputInfo->rowNum = 0;
 //}
 
-void ParseFlags(int argc, int* idxPatternFiles, char*** argv, flags* inputInfo) {
+int ParseFlags(int argc, int* idxPatternFiles, char*** argv, flags* inputInfo) {
 	int pf_idx = 0;
 	for(int i = 1; i < argc; i++) {
 		if ((*argv)[i][0] == '-') GetFlags((*argv)[i], inputInfo);
 		else idxPatternFiles[pf_idx++] = i;
 	}
 	if (!idxPatternFiles[0]) { fprintf(stderr, ERROR_NO_FILE), exit(1); }
+	return pf_idx;
 //	ExcludeIncompatibleFlags(inputInfo);
 }

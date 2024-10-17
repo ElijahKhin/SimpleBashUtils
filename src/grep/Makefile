@@ -3,7 +3,7 @@ NAME = s21_grep
 
 HEADERS = $(NAME).h
 
-SRC = flagsParsing.c
+SRC = flagsParsing.c findPattern.c
 
 PREREQ = $(HEADERS) Makefile ../s21_common/s21_common.a
 
@@ -11,7 +11,7 @@ OBJ_FOLDER = obj
 OBJ = $(SRC:%.c=$(OBJ_FOLDER)/%.o)
 
 CC = gcc
-FLAGS = -std=c11 -Werror -Wextra -Wall -I.
+FLAGS = -std=c11 -Wextra -Wall -I.
 
 # --- TESTING S21_CAT ---
 TCC = g++
