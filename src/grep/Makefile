@@ -3,7 +3,7 @@ NAME = s21_grep
 
 HEADERS = $(NAME).h
 
-SRC = flagsParsing.c printMatch.c
+SRC = flagsParsing.c Grep.c
 
 PREREQ = $(HEADERS) Makefile ../s21_common/s21_common.a
 
