@@ -31,7 +31,7 @@ extern "C" {
 	
 	/* Getting Valid Flags */
 	int ParseFlags(int argc, int* idxPatternFiles, char*** argv, flags* inputInfo);
-	void FindAndPrintPattern(int numFiles, int* idxPatternFiles, char*** argv, flags* inputInfo);
+	void PrintMatch(int numFiles, int* idxPatternFiles, char*** argv, flags* inputInfo);
 	
 	/*Getting Something Else*/
 	

@@ -11,7 +11,7 @@ int main() {
 	FILE* file = NULL;
 	
 	file = fopen("dummy.cc", "r");
-	if (!file) { fprintf(stderr, "not opened"); exit(1); }
+	if (!file) {fprintf fprintf(stderr, "not opened"); exit(1); }
 	fprintf(stdout, "opened\n");
 
 

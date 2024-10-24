@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
 
 	if (argc == 1) { fprintf(stderr, ERROR_NO_ARGS); exit(1); }
 	int numFiles = ParseFlags(argc, idxPatternFiles, &argv, &inputInfo);
-	FindAndPrintPattern(numFiles, idxPatternFiles, &argv, &inputInfo);
+	PrintMatch(numFiles, idxPatternFiles, &argv, &inputInfo);
 	free(idxPatternFiles);
 	return argc;
 }

@@ -3,7 +3,7 @@ NAME = s21_grep
 
 HEADERS = $(NAME).h
 
-SRC = flagsParsing.c findPattern.c
+SRC = flagsParsing.c printMatch.c
 
 PREREQ = $(HEADERS) Makefile ../s21_common/s21_common.a
 
@@ -19,6 +19,10 @@ TESTS = $(NAME)_tests.cc
 TESTS_BIN = tests_bin_$(NAME)
 GCOV_REPORT_NAME = tests_coverage_$(NAME)
 
+# --- LOCAL TESTS ---
+GREP_FLAGS = -vi
+PATTERN = fprintf
+
 # --- COLORS FOR A GOOD-LOOKING ASSEMBLING ---
 GREEN = \033[32m
 YELLOW = \033[0;33m
@@ -30,7 +34,7 @@ RESET = \033[0m
 
 # --- JUST TRASH --- 
 GCOV_TRASH = $(GCOV_REPORT_NAME) $(GCOV_REPORT_NAME).info *.gcda *.gcno report  *.gch
-OTHER_TRASH = obj *.a a.out .*.swp .DS_Store $(NAME) units $(TESTS_BIN) file_with_tests_trash py_res.csv unx_full_coverage_combo.csv
+OTHER_TRASH = obj *.a a.out .*.swp .DS_Store $(NAME) units $(TESTS_BIN) file_with_tests_trash py_res.csv unx_full_coverage_combo.csv unx_grep
 
 all: s21_common $(NAME)
 
@@ -73,6 +77,11 @@ tests: all
 	@$(TCC) -std=c++17 -I. $(TESTS) $(OBJ) ../s21_common/s21_common.a -lgtest -lgtest_main -pthread -o $(TESTS_BIN)
 	./$(TESTS_BIN)
 .PHONY: test
+
+local_tests: all
+	./s21_grep $(PATTERN) dummy.c
+	grep $(GREP_FLAGS) $(PATTERN) dummy.c
+	diff my_grep unx_grep
 
 show_tests_result: tests
 	@./$(TESTS_BIN)
