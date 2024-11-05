@@ -19,14 +19,17 @@
 //}
 
 int main(int argc, char* argv[]) {
-	flags inputInfo = {0};
-	int* idxPatternFiles;
-	idxPatternFiles = (int*)malloc((argc - 1) * sizeof(int));
-	if (idxPatternFiles == NULL) {fprintf(stdout, ERROR_MALLOC); return 1;}
+	flags flagsInfo = {0};
+	files filesInfo;
+
+	filesInfo.idxPatternFiles = (int*)malloc((argc - 1) * sizeof(int));
+	if (filesInfo.idxPatternFiles == NULL) {
+		fprintf(stdout, ERROR_MALLOC); 
+		return 1;
+	}
 
 	if (argc == 1) { fprintf(stderr, ERROR_NO_ARGS); exit(1); }
-	int numFiles = ParseFlags(argc, idxPatternFiles, &argv, &inputInfo);
-	Grep(numFiles, idxPatternFiles, &argv, &inputInfo);
-	free(idxPatternFiles);
-	return argc;
+	ParseFlags(argc, &argv, &flagsInfo, &filesInfo);
+	Grep(&argv, &flagsInfo, &filesInfo);
+	free(filesInfo.idxPatternFiles);
 }

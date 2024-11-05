@@ -13,7 +13,7 @@ extern "C" {
 	# define USAGE "usage: s21_grep [-eivcln] [file ...]\n"
 	# define ERROR_STDIN "s21_grep: stdin request is not supported in this version of cat\n"
 	
-	typedef struct flags {
+	typedef struct flagsInfo {
 		bool e_pattern;
 		bool i_ignore_case;
 		bool v_invert;
@@ -26,12 +26,15 @@ extern "C" {
 		bool o_only_matching;
 	} flags;
 
-	typedef enum SpecifyPartOfRow { EMPTY, START, MIDDLE, END } RowPart;
-
+	typedef struct filesInfo {
+		int numFiles;
+		int* idxPatternFiles;
+	} files;
 	
+
 	/* Getting Valid Flags */
-	int ParseFlags(int argc, int* idxPatternFiles, char*** argv, flags* inputInfo);
-	void Grep(int numFiles, int* idxPatternFiles, char*** argv, flags* inputInfo);
+	void ParseFlags(int argc, char*** argv, flags* flagsInfo, files* filesInfo);
+	void Grep(char*** argv, flags* flagsInfo, files* filesInfo);
 	
 	/*Getting Something Else*/
 	

@@ -14,44 +14,100 @@ static size_t IgnoreCase(char* line, char* pattern, bool invertFlag) {
 	return invertFlag ? 1 : 0;
 }
 
-static bool SearchPattern(char* line, char* pattern, flags* inputInfo) {
-	if (inputInfo->i_ignore_case) 
-		return IgnoreCase(line, pattern, inputInfo->v_invert);
+static bool SearchPattern(char* line, char* pattern, flags* flagsInfo) {
+	if (flagsInfo->i_ignore_case) 
+		return IgnoreCase(line, pattern, flagsInfo->v_invert);
 	else 
-		return DoNotIgnoreCase(line, pattern, inputInfo->v_invert);
+		return DoNotIgnoreCase(line, pattern, flagsInfo->v_invert);
 }
 
-static void IterLines(char* pattern, char* file_name, FILE* filep, flags* inputInfo) {
-	size_t numLine = 0, matchedCnt = 0;
+static void GetOutputCode(char* pattern, FILE* filep, char* file_name, int numFiles, flags* flagsInfo) {
+	size_t numMatched = 0, numLine = 0;
 	size_t bufsize = 32;
 	char* line = (char *)malloc(sizeof(char) * bufsize); 
 
 	if (!line) return exit(1);
-	
 	while (getline(&line, &bufsize, filep) != -1) {
 		numLine++;
-		if (inputInfo->l_files_matched) {
-			if (SearchPattern(line, pattern, inputInfo)) {
-				if (inputInfo->c_count) fprintf(stdout, "%s:1\n", file_name);
-				fprintf(stdout, "%s\n", file_name); 
+		if (flagsInfo->l_files_matched) {
+			if (SearchPattern(line, pattern, flagsInfo)) {
+				if (flagsInfo->c_count) {
+					if (numFiles != 1) 
+						fprintf(stdout, "%s:1\n", file_name);
+					else 
+						fprintf(stdout, "1\n");
+				}
+				fprintf(stdout, "%s\n", file_name);
 				break;
 			}
 		}
-//		else {
-//
-//		}
+		else {
+			if (SearchPattern(line, pattern, flagsInfo)) {
+				if (!flagsInfo->c_count) {
+					if (!flagsInfo->h_no_file_name) {
+						if (!flagsInfo->n_line_number) {
+							if (!flagsInfo->o_only_matching) {
+								if (numFiles!=1)
+									fprintf(stdout, "%s:%s\n", file_name, line);
+								else
+									fprintf(stdout, "%s\n", line);
+							}
+							else {
+								if (numFiles!=1)
+									fprintf(stdout, "%s:%s\n", file_name, pattern);
+								else
+									fprintf(stdout, "%s\n", pattern);
+							}
+						}
+						else {
+							if (!flagsInfo->o_only_matching) {
+								if (numFiles!=1)
+									fprintf(stdout, "%s:%d:%s\n", file_name, lineNum, line);
+								else
+									fprintf(stdout, "%d:%s\n", lineNum, line);
+							}
+							else {
+								if (numFiles!=1)
+									fprintf(stdout, "%s:%d:%s\n", file_name, lineNum, pattern);
+								else
+									fprintf(stdout, "%d:%s\n", lineNum, pattern);
+							}
+						}
+					}
+					else {
+						if (!flagsInfo->n_line_number) {
+							if (!flagsInfo->o_only_matching) {
+								fprintf(stdout, "%s\n", line);
+							}
+							else {
+								fprintf(stdout, "%s\n", pattern);
+							}
+						}
+						else {
+							if (!flagsInfo->o_only_matching) {
+								fprintf(stdout, "%d:%s\n", lineNum, line);
+							}
+							else {
+								fprintf(stdout, "%d:%s\n",lineNum, pattern);
+							}
+						}
+					}
+				}
+				else numMatched++;
+			}
+		}
 	}
-	free(line);
 }
 
-void Grep(int numFiles, int* idxPatternFiles, char*** argv, flags* inputInfo) {
-	char* pattern = (*argv)[idxPatternFiles[0]];
-	int idx_file = 1;
-	FILE* filep = NULL;
-
-	while(idx_file < numFiles) {
-		s21_open_file(&filep, (*argv)[idxPatternFiles[idx_file]], "r");
-		IterLines(pattern, (*argv)[idxPatternFiles[idx_file++]], filep, inputInfo);
+void Grep(char*** argv, flags* flagsInfo, files* filesInfo) {
+	int idx_file = 0;
+	FILE *filep = NULL;
+	char *file_name, *pattern = (*argv)[filesInfo->idxPatternFiles[0]];
+	
+	while(++idx_file <= filesInfo->numFiles) {
+		file_name = (*argv)[filesInfo->idxPatternFiles[idx_file]];
+		s21_open_file(&filep, file_name, "r");
+		GetOutputCode(pattern, filep, file_name, filesInfo->numFiles, flagsInfo);
 		fclose(filep);
 	}
 }
