@@ -1,0 +1,96 @@
+-i test_files/dummy.c
+-i test_files/dummy.c test_files/Makefile
+-i test_files/Makefile
+-vi test_files/dummy.c
+-vi test_files/dummy.c test_files/Makefile
+-vi test_files/Makefile
+-ci test_files/dummy.c
+-ci test_files/dummy.c test_files/Makefile
+-ci test_files/Makefile
+-li test_files/dummy.c
+-li test_files/dummy.c test_files/Makefile
+-li test_files/Makefile
+-ni test_files/dummy.c
+-ni test_files/dummy.c test_files/Makefile
+-ni test_files/Makefile
+-vci test_files/dummy.c
+-vci test_files/dummy.c test_files/Makefile
+-vci test_files/Makefile
+-vli test_files/dummy.c
+-vli test_files/dummy.c test_files/Makefile
+-vli test_files/Makefile
+-vni test_files/dummy.c
+-vni test_files/dummy.c test_files/Makefile
+-vni test_files/Makefile
+-lci test_files/dummy.c
+-lci test_files/dummy.c test_files/Makefile
+-lci test_files/Makefile
+-cni test_files/dummy.c
+-cni test_files/dummy.c test_files/Makefile
+-cni test_files/Makefile
+-lni test_files/dummy.c
+-lni test_files/dummy.c test_files/Makefile
+-lni test_files/Makefile
+-vcli test_files/dummy.c
+-vcli test_files/dummy.c test_files/Makefile
+-vcli test_files/Makefile
+-vcni test_files/dummy.c
+-vcni test_files/dummy.c test_files/Makefile
+-vcni test_files/Makefile
+-vlni test_files/dummy.c
+-vlni test_files/dummy.c test_files/Makefile
+-vlni test_files/Makefile
+-lcni test_files/dummy.c
+-lcni test_files/dummy.c test_files/Makefile
+-lcni test_files/Makefile
+-vncil test_files/dummy.c
+-vncil test_files/dummy.c test_files/Makefile
+-vncil test_files/Makefile
+-v test_files/dummy.c
+-v test_files/dummy.c test_files/Makefile
+-v test_files/Makefile
+-cv test_files/dummy.c
+-cv test_files/dummy.c test_files/Makefile
+-cv test_files/Makefile
+-lv test_files/dummy.c
+-lv test_files/dummy.c test_files/Makefile
+-lv test_files/Makefile
+-nv test_files/dummy.c
+-nv test_files/dummy.c test_files/Makefile
+-nv test_files/Makefile
+-lcv test_files/dummy.c
+-lcv test_files/dummy.c test_files/Makefile
+-lcv test_files/Makefile
+-cnv test_files/dummy.c
+-cnv test_files/dummy.c test_files/Makefile
+-cnv test_files/Makefile
+-lnv test_files/dummy.c
+-lnv test_files/dummy.c test_files/Makefile
+-lnv test_files/Makefile
+-lcnv test_files/dummy.c
+-lcnv test_files/dummy.c test_files/Makefile
+-lcnv test_files/Makefile
+-c test_files/dummy.c
+-c test_files/dummy.c test_files/Makefile
+-c test_files/Makefile
+-cl test_files/dummy.c
+-cl test_files/dummy.c test_files/Makefile
+-cl test_files/Makefile
+-cn test_files/dummy.c
+-cn test_files/dummy.c test_files/Makefile
+-cn test_files/Makefile
+-cnl test_files/dummy.c
+-cnl test_files/dummy.c test_files/Makefile
+-cnl test_files/Makefile
+-l test_files/dummy.c
+-l test_files/dummy.c test_files/Makefile
+-l test_files/Makefile
+-nl test_files/dummy.c
+-nl test_files/dummy.c test_files/Makefile
+-nl test_files/Makefile
+-n test_files/dummy.c
+-n test_files/dummy.c test_files/Makefile
+-n test_files/Makefile
+test_files/dummy.c
+test_files/dummy.c test_files/Makefile
+test_files/Makefile

@@ -12,11 +12,12 @@ void freeTab(char **tab) {
 
 TEST(Flags, all) {
 	char **argv = s21_split("exec -e -i  dummy.c -v file_name file_name -clnhsfo", ' ');
-	int *idxPatternFiles = (int*)malloc((7) * sizeof(int));
+	files flagsInfo;
+	flagsInfo.idxPatternFiles = (int*)malloc((12) * sizeof(int));
 	flags inputInfo = {0};
 
 
-	ParseFlags(8, idxPatternFiles, &argv, &inputInfo);
+	ParseFlags(8, &argv, &inputInfo, &flagsInfo);
 
 	EXPECT_EQ(inputInfo.e_pattern, 1); 
 	EXPECT_EQ(inputInfo.i_ignore_case, 1);
@@ -34,11 +35,12 @@ TEST(Flags, all) {
 
 TEST(Flags, AllSeparated) {
 	char **argv = s21_split("exec -e -i -v file -c -l -n -h -s file_name -f -o", ' ');
-	int *idxPatternFiles = (int*)malloc((12) * sizeof(int));
+	files flagsInfo;
+	flagsInfo.idxPatternFiles = (int*)malloc((12) * sizeof(int));
 	flags inputInfo = {0};
 
 
-	ParseFlags(13, idxPatternFiles, &argv, &inputInfo);
+	ParseFlags(13, &argv, &inputInfo, &flagsInfo);
 
 	EXPECT_EQ(inputInfo.e_pattern, 1); 
 	EXPECT_EQ(inputInfo.i_ignore_case, 1);
