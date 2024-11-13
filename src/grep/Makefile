@@ -67,15 +67,14 @@ fclean: clean_gcov
 re: fclean all
 .PHONY: re
 
-unx_full_coverage_combo.csv: py_script
-
 py_script: all
-	python3 cat_test_script.py
+	python3 grep_test_script.py
 
-tests: all
+full_coverage_combo.csv: py_script
+
+tests: full_coverage_combo.csv
 	@make tests -C ../s21_common/
 	@$(TCC) -std=c++17 -I. $(TESTS) $(OBJ) ../s21_common/s21_common.a -lgtest -lgtest_main -pthread -o $(TESTS_BIN)
-	./$(TESTS_BIN)
 .PHONY: test
 
 local_tests: all
