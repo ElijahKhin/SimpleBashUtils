@@ -20,7 +20,7 @@ TESTS_BIN = tests_bin_$(NAME)
 GCOV_REPORT_NAME = tests_coverage_$(NAME)
 
 # --- LOCAL TESTS ---
-GREP_FLAGS = -vi
+GREP_FLAGS = -l
 PATTERN = fprintf
 
 # --- COLORS FOR A GOOD-LOOKING ASSEMBLING ---
@@ -68,7 +68,7 @@ re: fclean all
 .PHONY: re
 
 py_script: all
-	python3 grep_test_script.py
+	python3 test_files/grep_test_script.py
 
 full_coverage_combo.csv: py_script
 
@@ -78,8 +78,8 @@ tests: full_coverage_combo.csv
 .PHONY: test
 
 local_tests: all
-	./s21_grep $(PATTERN) dummy.c
-	grep $(GREP_FLAGS) $(PATTERN) dummy.c
+	./s21_grep $(GREP_FLAGS) $(PATTERN) dummy.c > my_grep
+	grep $(GREP_FLAGS) $(PATTERN) dummy.c > unx_grep
 	diff my_grep unx_grep
 
 show_tests_result: tests

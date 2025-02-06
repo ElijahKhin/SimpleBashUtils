@@ -22,32 +22,42 @@ static bool SearchPattern(char* line, char* pattern, flags* flagsInfo) {
 }
 
 static void PrintResult(int outputCode, char* line, char* pattern, char* file_name, size_t numLine) {
-	if (outputCode == 1) fprintf(stdout, "%s:1\n%s\n", file_name, file_name);
-	else if (outputCode == 2) fprintf(stdout, "1\n%s\n", file_name);
+	if (outputCode == 1) fprintf(stdout, "1\n%s\n", file_name);
+	else if (outputCode == 2) fprintf(stdout, "%s:1\n%s\n", file_name, file_name);
 	else if (outputCode == 3) fprintf(stdout, "%s\n", file_name);
-	else if (outputCode == 4) fprintf(stdout, "%s", line);
-	else if (outputCode == 5) fprintf(stdout, "%s\n", pattern);
-	else if (outputCode == 6) fprintf(stdout, "%zu:%s", numLine, line);
-	else if (outputCode == 7) fprintf(stdout, "%zu:%s\n",numLine, pattern);
-	else if (outputCode == 8) fprintf(stdout, "%s:%s", file_name, line);
-	else if (outputCode == 9) fprintf(stdout, "%s", line);
-	else if (outputCode == 10) fprintf(stdout, "%s:%s\n", file_name, pattern);
-	else if (outputCode == 11) fprintf(stdout, "%s\n", pattern);
-	else if (outputCode == 12) 
-		fprintf(stdout, "%s:%zu:%s", file_name, numLine, line);
-	else if (outputCode == 13) fprintf(stdout, "%zu:%s", numLine, line);
-	else if (outputCode == 14) 
-		fprintf(stdout, "%s:%zu:%s\n", file_name, numLine, pattern);
-	else if (outputCode == 15) fprintf(stdout, "%zu:%s\n", numLine, pattern);
+//	if (outputCode == 1) fprintf(stdout, "%s:1\n%s\n", file_name, file_name);
+//	else if (outputCode == 2) fprintf(stdout, "1\n%s\n", file_name);
+//	else if (outputCode == 3) fprintf(stdout, "%s\n", file_name);
+//	else if (outputCode == 4) fprintf(stdout, "%s", line);
+//	else if (outputCode == 5) fprintf(stdout, "%s\n", pattern);
+//	else if (outputCode == 6) fprintf(stdout, "%zu:%s", numLine, line);
+//	else if (outputCode == 7) fprintf(stdout, "%zu:%s\n",numLine, pattern);
+//	else if (outputCode == 8) fprintf(stdout, "%s:%s", file_name, line);
+//	else if (outputCode == 9) fprintf(stdout, "%s", line);
+//	else if (outputCode == 10) fprintf(stdout, "%s:%s\n", file_name, pattern);
+//	else if (outputCode == 11) fprintf(stdout, "%s\n", pattern);
+//	else if (outputCode == 12) 
+//		fprintf(stdout, "%s:%zu:%s", file_name, numLine, line);
+//	else if (outputCode == 13) fprintf(stdout, "%zu:%s", numLine, line);
+//	else if (outputCode == 14) 
+//		fprintf(stdout, "%s:%zu:%s\n", file_name, numLine, pattern);
+//	else if (outputCode == 15) fprintf(stdout, "%zu:%s\n", numLine, pattern);
 	else fprintf(stdout, "other codes");
 }
 
 static int ShortWay(int numFiles, flags* flagsInfo) {
 	if (flagsInfo->c_count) {
-		if (numFiles != 1) 
+		if (numFiles != 1) {
+			if (flagsInfo->h_no_file_name) {
+				return 1;
+			}
+			else {
+				return 2;
+			}
+		} 
+		else { 
 			return 1;
-		else 
-			return 2;
+		}
 	}
 	return 3;
 }

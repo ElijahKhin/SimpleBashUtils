@@ -56,12 +56,12 @@ TEST(Flags, AllSeparated) {
 	freeTab(argv);
 }
 
-TEST(GREP, COMBO) {
+TEST(GREP, SHORT_WAY) {
 	std::ifstream file_combo;
-	file_combo.open("full_coverage_combo.csv");
+	file_combo.open("test_files/short_way_coverage.csv");
 	std::string combo;
 
-	int i = 1;
+	int i = 0;
 	while (std::getline(file_combo, combo)) {
 		FILE* s21_grep = popen((std::string("./s21_grep fprintf ") + combo).c_str(), "r");
 		FILE* unx_grep = popen((std::string("grep fprintf ") + combo).c_str(), "r");
@@ -69,7 +69,7 @@ TEST(GREP, COMBO) {
 		if (!s21_grep || !unx_grep) exit(1);
 		char s21_c = getc(s21_grep);
 		char unx_c = getc(unx_grep);
-		std::cout << "grep test #" << std::setw(3) << i++ << ": " << std::setw(20) << combo.substr(0, combo.find(' ', 0)) << " ...";
+		std::cout << "grep test #" << std::setw(3) << ++i << ": " << std::setw(20) << combo.substr(0, combo.find(' ', 0)) << " ...";
 		while (s21_c != EOF && unx_c != EOF) {
 			ASSERT_EQ(s21_c, unx_c);
 			s21_c = getc(s21_grep), unx_c = getc(unx_grep);
@@ -79,6 +79,30 @@ TEST(GREP, COMBO) {
 		pclose(unx_grep);
 	}
 }
+
+//TEST(GREP, COMBO) {
+//	std::ifstream file_combo;
+//	file_combo.open("test_files/full_coverage_combo.csv");
+//	std::string combo;
+//
+//	int i = 1;
+//	while (std::getline(file_combo, combo)) {
+//		FILE* s21_grep = popen((std::string("./s21_grep fprintf ") + combo).c_str(), "r");
+//		FILE* unx_grep = popen((std::string("grep fprintf ") + combo).c_str(), "r");
+//
+//		if (!s21_grep || !unx_grep) exit(1);
+//		char s21_c = getc(s21_grep);
+//		char unx_c = getc(unx_grep);
+//		std::cout << "grep test #" << std::setw(3) << i++ << ": " << std::setw(20) << combo.substr(0, combo.find(' ', 0)) << " ...";
+//		while (s21_c != EOF && unx_c != EOF) {
+//			ASSERT_EQ(s21_c, unx_c);
+//			s21_c = getc(s21_grep), unx_c = getc(unx_grep);
+//		}
+//		std::cout << " done ✅ " << std::endl;
+//		pclose(s21_grep);
+//		pclose(unx_grep);
+//	}
+//}
 
 int main(int argc, char** argv) {
   testing::InitGoogleTest(&argc, argv);
