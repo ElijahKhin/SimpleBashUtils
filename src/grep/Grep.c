@@ -1,158 +1,141 @@
 #include "s21_grep.h"
 
-static size_t DoNotIgnoreCase(char* line, char* pattern, bool invertFlag) {
-	if (strstr(line, pattern)) {
-		return invertFlag ? 0 : 1;
-	}
-	return invertFlag ? 1 : 0;
-}
-
-static size_t IgnoreCase(char* line, char* pattern, bool invertFlag) {
-	if (strcasestr(line, pattern)) {
-		return invertFlag ? 0 : 1;
-	}
-	return invertFlag ? 1 : 0;
-}
-
-static bool SearchPattern(char* line, char* pattern, flags* flagsInfo) {
-	if (flagsInfo->i_ignore_case) 
-		return IgnoreCase(line, pattern, flagsInfo->v_invert);
-	else 
-		return DoNotIgnoreCase(line, pattern, flagsInfo->v_invert);
-}
-
-static void PrintResult(int outputCode, char* line, char* pattern, char* file_name, size_t numLine) {
-	if (outputCode == 1) fprintf(stdout, "1\n%s\n", file_name);
-	else if (outputCode == 2) fprintf(stdout, "%s:1\n%s\n", file_name, file_name);
-	else if (outputCode == 3) fprintf(stdout, "%s\n", file_name);
-//	if (outputCode == 1) fprintf(stdout, "%s:1\n%s\n", file_name, file_name);
-//	else if (outputCode == 2) fprintf(stdout, "1\n%s\n", file_name);
-//	else if (outputCode == 3) fprintf(stdout, "%s\n", file_name);
-//	else if (outputCode == 4) fprintf(stdout, "%s", line);
-//	else if (outputCode == 5) fprintf(stdout, "%s\n", pattern);
-//	else if (outputCode == 6) fprintf(stdout, "%zu:%s", numLine, line);
-//	else if (outputCode == 7) fprintf(stdout, "%zu:%s\n",numLine, pattern);
-//	else if (outputCode == 8) fprintf(stdout, "%s:%s", file_name, line);
-//	else if (outputCode == 9) fprintf(stdout, "%s", line);
-//	else if (outputCode == 10) fprintf(stdout, "%s:%s\n", file_name, pattern);
-//	else if (outputCode == 11) fprintf(stdout, "%s\n", pattern);
-//	else if (outputCode == 12) 
-//		fprintf(stdout, "%s:%zu:%s", file_name, numLine, line);
-//	else if (outputCode == 13) fprintf(stdout, "%zu:%s", numLine, line);
-//	else if (outputCode == 14) 
-//		fprintf(stdout, "%s:%zu:%s\n", file_name, numLine, pattern);
-//	else if (outputCode == 15) fprintf(stdout, "%zu:%s\n", numLine, pattern);
-	else fprintf(stdout, "other codes");
-}
-
-static int ShortWay(int numFiles, flags* flagsInfo) {
-	if (flagsInfo->c_count) {
-		if (numFiles != 1) {
-			if (flagsInfo->h_no_file_name) {
-				return 1;
+static void print4L(Flags* flags, char* file_name, int mnum) {
+	if (flags->c) {
+		if (mnum != 1) {
+			if (flags->h) {
+				fprintf(stdout, "1\n%s\n", file_name);
 			}
 			else {
-				return 2;
+				fprintf(stdout, "%s:1\n%s\n", file_name, file_name);
 			}
 		} 
-		else { 
-			return 1;
+		else {
+			fprintf(stdout, "1\n%s\n", file_name);
 		}
 	}
-	return 3;
-}
-
-static int LW_NoCountWithFileName(flags* flagsInfo) {
-	if (!flagsInfo->n_line_number) {
-		if (!flagsInfo->o_only_matching) return 4;
-		else return 5;
-	}
 	else {
-		if (!flagsInfo->o_only_matching) return 6;
-		else return 7;
+		fprintf(stdout, "%s\n", file_name);
 	}
 }
 
-static int LW_NoCountNoFileName(int numFiles, flags* flagsInfo) {
-	if (!flagsInfo->n_line_number) {
-		if (!flagsInfo->o_only_matching) {
-			if (numFiles!=1) return 8;
-			else return 9;
+static void print4C(Flags* flags, char* file_name, int mnum, int nmatched) {
+	if (mnum != 1) {
+		if (flags->h) {
+			fprintf(stdout, "%d\n", nmatched);
 		}
 		else {
-			if (numFiles!=1) return 10;
-			else return 11;
+			fprintf(stdout, "%s:%d\n", file_name, nmatched);
 		}
-	}
+	} 
 	else {
-		if (!flagsInfo->o_only_matching) {
-			if (numFiles!=1) return 12;
-			else return 13;
+		fprintf(stdout, "%d\n", nmatched);
+	}
+}
+
+static void printBasic(Flags* flags, char* line, char* file_name, int mnum, int numLine) {
+	if (mnum != 1) {
+		if (flags->h) {
+			if (flags->n) {
+				fprintf(stdout, "%d:%s", numLine, line);
+			}
+			else {
+				fprintf(stdout, "%s", line);
+			}
 		}
 		else {
-			if (numFiles!=1) return 14;
-			else return 15;
+			if (flags->n) {
+				fprintf(stdout, "%s:%d:%s", file_name, numLine, line);
+			}
+			else {
+				fprintf(stdout, "%s:%s", file_name, line);
+			}
 		}
 	}
-}
-
-static int LW_DoNotCount(int numFiles, flags* flagsInfo) {
-	if (!flagsInfo->h_no_file_name) {
-		return LW_NoCountNoFileName(numFiles, flagsInfo);
-	}
 	else {
-		return LW_NoCountWithFileName(flagsInfo);
+		if (flags->n) {
+			fprintf(stdout, "%d:%s", numLine, line);
+		}
+		else {
+			fprintf(stdout, "%s", line);
+		}
+	}
+	if (flags->o && !flags->v) {
+		fprintf(stdout, "\n");
 	}
 }
 
-static int LongWay(size_t* numMatched, int numFiles, flags* flagsInfo) {
-	if (!flagsInfo->c_count) {
-		return LW_DoNotCount(numFiles, flagsInfo);
-	}
-	else {
-		(*numMatched)++;
-		return 0;
-	}
-}
 
-static void GetOutputCode(char* pattern, FILE* filep, char* file_name, int numFiles, flags* flagsInfo) {
-	int outputCode = 0; 
-	size_t numMatched = 0, numLine = 0;
+static void Tree(
+		Regex* patterns, 
+		FILE* filep, 
+		char* file_name, 
+		int mnum, 
+		Flags* flags) {
+
+	regmatch_t pmatch[1];
+	int nmatched = 0; 
+	size_t numLine = 0;
 	size_t bufsize = 32;
 	char* line = (char *)malloc(sizeof(char) * bufsize); 
 
-	if (!line) return exit(1);
+
+	if (!line) exit(1);
 	while (getline(&line, &bufsize, filep) != -1) {
 		numLine++;
-		if (flagsInfo->l_files_matched) {
-			if (SearchPattern(line, pattern, flagsInfo)) {
-				outputCode = ShortWay(numFiles, flagsInfo);
+
+		int offset = 0, printed = 0;
+		if (patterns->full) {
+			
+		}
+		
+		while (regexec(&patterns->regex, line + offset, 1, pmatch, 0) == (flags->v ? REG_NOMATCH : 0) && !printed) {
+			if (flags->l) {
+				print4L(flags, file_name, mnum);
+				return ;
+			}
+			else {
+				if ((!flags->o && !flags->c) || (flags->o && flags->v && !flags->c)) {
+					printBasic(flags, line, file_name, mnum, numLine);
+					printed = 1;
+				}
+				if (flags->o && !flags->c && !flags->v) {
+					int start = pmatch[0].rm_so + offset;
+					int end = pmatch[0].rm_eo + offset;
+					char oline[end-start];
+					strncpy(oline, line + start, end-start);
+					printBasic(flags, oline, file_name, mnum, numLine);
+					offset = end;
+				}
+			}
+			if (flags->c) {
+				++nmatched;
+				break;
 			}
 		}
-		else {
-			if (SearchPattern(line, pattern, flagsInfo)) {
-				outputCode = LongWay(&numMatched, numFiles, flagsInfo);
-			}
-		}
-		if (outputCode) {
-			PrintResult(outputCode, line, pattern, file_name, numLine);
-			if (outputCode < 4) break;
-		}
-		outputCode = 0;
 	}
-//	if (numMatched) {
-//	}
+	if (flags->c && nmatched) {
+		print4C(flags, file_name, mnum, nmatched);
+	}
+	rewind(filep);
+	free(line);
 }
 
-void Grep(char*** argv, flags* flagsInfo, files* filesInfo) {
-	int idx_file = 0;
+
+void Grep(char*** argv, Flags* flags, Map* map, Regex* patterns) {
+	int mnum;
 	FILE *filep = NULL;
-	char *file_name, *pattern = (*argv)[filesInfo->idxPatternFiles[0]];
-	
-	while(++idx_file <= filesInfo->numFiles) {
-		file_name = (*argv)[filesInfo->idxPatternFiles[idx_file]];
-		s21_open_file(&filep, file_name, "r");
-		GetOutputCode(pattern, filep, file_name, filesInfo->numFiles, flagsInfo);
+	char *file_name;
+
+	mnum = (patterns->pnum ? map->mnum : map->mnum - 1);
+	for (int i = (patterns->pnum ? 0 : 1); i < map->mnum; ++i) {
+		file_name = (*argv)[map->whoiswho[i]];
+		filep = fopen(file_name, "r");
+		if (!filep && !flags->s) {
+			fprintf(stdout, "s21_grep: %s: No such file or directory", file_name);
+		}
+		Tree(patterns, filep, file_name, mnum, flags);
 		fclose(filep);
 	}
+	regfree(&patterns->regex);
 }

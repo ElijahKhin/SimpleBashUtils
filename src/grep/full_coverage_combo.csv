@@ -1,96 +1,384 @@
 -i test_files/dummy.c
--i test_files/dummy.c test_files/Makefile
+-i test_files/Makefile test_files/dummy.c
 -i test_files/Makefile
--vi test_files/dummy.c
--vi test_files/dummy.c test_files/Makefile
--vi test_files/Makefile
+-iv test_files/dummy.c
+-iv test_files/Makefile test_files/dummy.c
+-iv test_files/Makefile
 -ci test_files/dummy.c
--ci test_files/dummy.c test_files/Makefile
+-ci test_files/Makefile test_files/dummy.c
 -ci test_files/Makefile
--li test_files/dummy.c
--li test_files/dummy.c test_files/Makefile
--li test_files/Makefile
--hi test_files/dummy.c
--hi test_files/dummy.c test_files/Makefile
--hi test_files/Makefile
--vci test_files/dummy.c
--vci test_files/dummy.c test_files/Makefile
--vci test_files/Makefile
--vli test_files/dummy.c
--vli test_files/dummy.c test_files/Makefile
--vli test_files/Makefile
--vhi test_files/dummy.c
--vhi test_files/dummy.c test_files/Makefile
--vhi test_files/Makefile
--cli test_files/dummy.c
--cli test_files/dummy.c test_files/Makefile
--cli test_files/Makefile
--chi test_files/dummy.c
--chi test_files/dummy.c test_files/Makefile
--chi test_files/Makefile
--hli test_files/dummy.c
--hli test_files/dummy.c test_files/Makefile
--hli test_files/Makefile
--vcli test_files/dummy.c
--vcli test_files/dummy.c test_files/Makefile
--vcli test_files/Makefile
--vchi test_files/dummy.c
--vchi test_files/dummy.c test_files/Makefile
--vchi test_files/Makefile
--vhli test_files/dummy.c
--vhli test_files/dummy.c test_files/Makefile
--vhli test_files/Makefile
--hcli test_files/dummy.c
--hcli test_files/dummy.c test_files/Makefile
--hcli test_files/Makefile
--cilhv test_files/dummy.c
--cilhv test_files/dummy.c test_files/Makefile
--cilhv test_files/Makefile
+-il test_files/dummy.c
+-il test_files/Makefile test_files/dummy.c
+-il test_files/Makefile
+-in test_files/dummy.c
+-in test_files/Makefile test_files/dummy.c
+-in test_files/Makefile
+-ih test_files/dummy.c
+-ih test_files/Makefile test_files/dummy.c
+-ih test_files/Makefile
+-io test_files/dummy.c
+-io test_files/Makefile test_files/dummy.c
+-io test_files/Makefile
+-civ test_files/dummy.c
+-civ test_files/Makefile test_files/dummy.c
+-civ test_files/Makefile
+-ilv test_files/dummy.c
+-ilv test_files/Makefile test_files/dummy.c
+-ilv test_files/Makefile
+-inv test_files/dummy.c
+-inv test_files/Makefile test_files/dummy.c
+-inv test_files/Makefile
+-ihv test_files/dummy.c
+-ihv test_files/Makefile test_files/dummy.c
+-ihv test_files/Makefile
+-iov test_files/dummy.c
+-iov test_files/Makefile test_files/dummy.c
+-iov test_files/Makefile
+-cil test_files/dummy.c
+-cil test_files/Makefile test_files/dummy.c
+-cil test_files/Makefile
+-cin test_files/dummy.c
+-cin test_files/Makefile test_files/dummy.c
+-cin test_files/Makefile
+-cih test_files/dummy.c
+-cih test_files/Makefile test_files/dummy.c
+-cih test_files/Makefile
+-cio test_files/dummy.c
+-cio test_files/Makefile test_files/dummy.c
+-cio test_files/Makefile
+-inl test_files/dummy.c
+-inl test_files/Makefile test_files/dummy.c
+-inl test_files/Makefile
+-ihl test_files/dummy.c
+-ihl test_files/Makefile test_files/dummy.c
+-ihl test_files/Makefile
+-ilo test_files/dummy.c
+-ilo test_files/Makefile test_files/dummy.c
+-ilo test_files/Makefile
+-inh test_files/dummy.c
+-inh test_files/Makefile test_files/dummy.c
+-inh test_files/Makefile
+-ino test_files/dummy.c
+-ino test_files/Makefile test_files/dummy.c
+-ino test_files/Makefile
+-iho test_files/dummy.c
+-iho test_files/Makefile test_files/dummy.c
+-iho test_files/Makefile
+-cilv test_files/dummy.c
+-cilv test_files/Makefile test_files/dummy.c
+-cilv test_files/Makefile
+-cinv test_files/dummy.c
+-cinv test_files/Makefile test_files/dummy.c
+-cinv test_files/Makefile
+-cihv test_files/dummy.c
+-cihv test_files/Makefile test_files/dummy.c
+-cihv test_files/Makefile
+-ciov test_files/dummy.c
+-ciov test_files/Makefile test_files/dummy.c
+-ciov test_files/Makefile
+-inlv test_files/dummy.c
+-inlv test_files/Makefile test_files/dummy.c
+-inlv test_files/Makefile
+-ihlv test_files/dummy.c
+-ihlv test_files/Makefile test_files/dummy.c
+-ihlv test_files/Makefile
+-ilov test_files/dummy.c
+-ilov test_files/Makefile test_files/dummy.c
+-ilov test_files/Makefile
+-inhv test_files/dummy.c
+-inhv test_files/Makefile test_files/dummy.c
+-inhv test_files/Makefile
+-inov test_files/dummy.c
+-inov test_files/Makefile test_files/dummy.c
+-inov test_files/Makefile
+-ihov test_files/dummy.c
+-ihov test_files/Makefile test_files/dummy.c
+-ihov test_files/Makefile
+-cinl test_files/dummy.c
+-cinl test_files/Makefile test_files/dummy.c
+-cinl test_files/Makefile
+-cihl test_files/dummy.c
+-cihl test_files/Makefile test_files/dummy.c
+-cihl test_files/Makefile
+-cilo test_files/dummy.c
+-cilo test_files/Makefile test_files/dummy.c
+-cilo test_files/Makefile
+-cinh test_files/dummy.c
+-cinh test_files/Makefile test_files/dummy.c
+-cinh test_files/Makefile
+-cino test_files/dummy.c
+-cino test_files/Makefile test_files/dummy.c
+-cino test_files/Makefile
+-ciho test_files/dummy.c
+-ciho test_files/Makefile test_files/dummy.c
+-ciho test_files/Makefile
+-inlh test_files/dummy.c
+-inlh test_files/Makefile test_files/dummy.c
+-inlh test_files/Makefile
+-inlo test_files/dummy.c
+-inlo test_files/Makefile test_files/dummy.c
+-inlo test_files/Makefile
+-ihlo test_files/dummy.c
+-ihlo test_files/Makefile test_files/dummy.c
+-ihlo test_files/Makefile
+-inho test_files/dummy.c
+-inho test_files/Makefile test_files/dummy.c
+-inho test_files/Makefile
+-cinlv test_files/dummy.c
+-cinlv test_files/Makefile test_files/dummy.c
+-cinlv test_files/Makefile
+-cilvh test_files/dummy.c
+-cilvh test_files/Makefile test_files/dummy.c
+-cilvh test_files/Makefile
+-ocilv test_files/dummy.c
+-ocilv test_files/Makefile test_files/dummy.c
+-ocilv test_files/Makefile
+-cinvh test_files/dummy.c
+-cinvh test_files/Makefile test_files/dummy.c
+-cinvh test_files/Makefile
+-ocinv test_files/dummy.c
+-ocinv test_files/Makefile test_files/dummy.c
+-ocinv test_files/Makefile
+-ocivh test_files/dummy.c
+-ocivh test_files/Makefile test_files/dummy.c
+-ocivh test_files/Makefile
+-inlvh test_files/dummy.c
+-inlvh test_files/Makefile test_files/dummy.c
+-inlvh test_files/Makefile
+-oinlv test_files/dummy.c
+-oinlv test_files/Makefile test_files/dummy.c
+-oinlv test_files/Makefile
+-oilvh test_files/dummy.c
+-oilvh test_files/Makefile test_files/dummy.c
+-oilvh test_files/Makefile
+-oinvh test_files/dummy.c
+-oinvh test_files/Makefile test_files/dummy.c
+-oinvh test_files/Makefile
+-cinlh test_files/dummy.c
+-cinlh test_files/Makefile test_files/dummy.c
+-cinlh test_files/Makefile
+-ocinl test_files/dummy.c
+-ocinl test_files/Makefile test_files/dummy.c
+-ocinl test_files/Makefile
+-ocilh test_files/dummy.c
+-ocilh test_files/Makefile test_files/dummy.c
+-ocilh test_files/Makefile
+-ocinh test_files/dummy.c
+-ocinh test_files/Makefile test_files/dummy.c
+-ocinh test_files/Makefile
+-oinlh test_files/dummy.c
+-oinlh test_files/Makefile test_files/dummy.c
+-oinlh test_files/Makefile
+-cinlvh test_files/dummy.c
+-cinlvh test_files/Makefile test_files/dummy.c
+-cinlvh test_files/Makefile
+-ocinlv test_files/dummy.c
+-ocinlv test_files/Makefile test_files/dummy.c
+-ocinlv test_files/Makefile
+-ocilvh test_files/dummy.c
+-ocilvh test_files/Makefile test_files/dummy.c
+-ocilvh test_files/Makefile
+-ocinvh test_files/dummy.c
+-ocinvh test_files/Makefile test_files/dummy.c
+-ocinvh test_files/Makefile
+-oinlvh test_files/dummy.c
+-oinlvh test_files/Makefile test_files/dummy.c
+-oinlvh test_files/Makefile
+-ocinlh test_files/dummy.c
+-ocinlh test_files/Makefile test_files/dummy.c
+-ocinlh test_files/Makefile
+-ocinlvh test_files/dummy.c
+-ocinlvh test_files/Makefile test_files/dummy.c
+-ocinlvh test_files/Makefile
 -v test_files/dummy.c
--v test_files/dummy.c test_files/Makefile
+-v test_files/Makefile test_files/dummy.c
 -v test_files/Makefile
 -cv test_files/dummy.c
--cv test_files/dummy.c test_files/Makefile
+-cv test_files/Makefile test_files/dummy.c
 -cv test_files/Makefile
 -lv test_files/dummy.c
--lv test_files/dummy.c test_files/Makefile
+-lv test_files/Makefile test_files/dummy.c
 -lv test_files/Makefile
+-nv test_files/dummy.c
+-nv test_files/Makefile test_files/dummy.c
+-nv test_files/Makefile
 -hv test_files/dummy.c
--hv test_files/dummy.c test_files/Makefile
+-hv test_files/Makefile test_files/dummy.c
 -hv test_files/Makefile
+-ov test_files/dummy.c
+-ov test_files/Makefile test_files/dummy.c
+-ov test_files/Makefile
 -clv test_files/dummy.c
--clv test_files/dummy.c test_files/Makefile
+-clv test_files/Makefile test_files/dummy.c
 -clv test_files/Makefile
+-cnv test_files/dummy.c
+-cnv test_files/Makefile test_files/dummy.c
+-cnv test_files/Makefile
 -chv test_files/dummy.c
--chv test_files/dummy.c test_files/Makefile
+-chv test_files/Makefile test_files/dummy.c
 -chv test_files/Makefile
+-cov test_files/dummy.c
+-cov test_files/Makefile test_files/dummy.c
+-cov test_files/Makefile
+-nlv test_files/dummy.c
+-nlv test_files/Makefile test_files/dummy.c
+-nlv test_files/Makefile
 -hlv test_files/dummy.c
--hlv test_files/dummy.c test_files/Makefile
+-hlv test_files/Makefile test_files/dummy.c
 -hlv test_files/Makefile
--hclv test_files/dummy.c
--hclv test_files/dummy.c test_files/Makefile
--hclv test_files/Makefile
+-lov test_files/dummy.c
+-lov test_files/Makefile test_files/dummy.c
+-lov test_files/Makefile
+-nhv test_files/dummy.c
+-nhv test_files/Makefile test_files/dummy.c
+-nhv test_files/Makefile
+-nov test_files/dummy.c
+-nov test_files/Makefile test_files/dummy.c
+-nov test_files/Makefile
+-hov test_files/dummy.c
+-hov test_files/Makefile test_files/dummy.c
+-hov test_files/Makefile
+-cnlv test_files/dummy.c
+-cnlv test_files/Makefile test_files/dummy.c
+-cnlv test_files/Makefile
+-chlv test_files/dummy.c
+-chlv test_files/Makefile test_files/dummy.c
+-chlv test_files/Makefile
+-clov test_files/dummy.c
+-clov test_files/Makefile test_files/dummy.c
+-clov test_files/Makefile
+-cnhv test_files/dummy.c
+-cnhv test_files/Makefile test_files/dummy.c
+-cnhv test_files/Makefile
+-cnov test_files/dummy.c
+-cnov test_files/Makefile test_files/dummy.c
+-cnov test_files/Makefile
+-chov test_files/dummy.c
+-chov test_files/Makefile test_files/dummy.c
+-chov test_files/Makefile
+-nlhv test_files/dummy.c
+-nlhv test_files/Makefile test_files/dummy.c
+-nlhv test_files/Makefile
+-nlov test_files/dummy.c
+-nlov test_files/Makefile test_files/dummy.c
+-nlov test_files/Makefile
+-hlov test_files/dummy.c
+-hlov test_files/Makefile test_files/dummy.c
+-hlov test_files/Makefile
+-nhov test_files/dummy.c
+-nhov test_files/Makefile test_files/dummy.c
+-nhov test_files/Makefile
+-cnlvh test_files/dummy.c
+-cnlvh test_files/Makefile test_files/dummy.c
+-cnlvh test_files/Makefile
+-ocnlv test_files/dummy.c
+-ocnlv test_files/Makefile test_files/dummy.c
+-ocnlv test_files/Makefile
+-oclvh test_files/dummy.c
+-oclvh test_files/Makefile test_files/dummy.c
+-oclvh test_files/Makefile
+-ocnvh test_files/dummy.c
+-ocnvh test_files/Makefile test_files/dummy.c
+-ocnvh test_files/Makefile
+-onlvh test_files/dummy.c
+-onlvh test_files/Makefile test_files/dummy.c
+-onlvh test_files/Makefile
+-ocnlvh test_files/dummy.c
+-ocnlvh test_files/Makefile test_files/dummy.c
+-ocnlvh test_files/Makefile
 -c test_files/dummy.c
--c test_files/dummy.c test_files/Makefile
+-c test_files/Makefile test_files/dummy.c
 -c test_files/Makefile
--lc test_files/dummy.c
--lc test_files/dummy.c test_files/Makefile
--lc test_files/Makefile
--hc test_files/dummy.c
--hc test_files/dummy.c test_files/Makefile
--hc test_files/Makefile
--hlc test_files/dummy.c
--hlc test_files/dummy.c test_files/Makefile
--hlc test_files/Makefile
+-cl test_files/dummy.c
+-cl test_files/Makefile test_files/dummy.c
+-cl test_files/Makefile
+-cn test_files/dummy.c
+-cn test_files/Makefile test_files/dummy.c
+-cn test_files/Makefile
+-ch test_files/dummy.c
+-ch test_files/Makefile test_files/dummy.c
+-ch test_files/Makefile
+-co test_files/dummy.c
+-co test_files/Makefile test_files/dummy.c
+-co test_files/Makefile
+-cnl test_files/dummy.c
+-cnl test_files/Makefile test_files/dummy.c
+-cnl test_files/Makefile
+-chl test_files/dummy.c
+-chl test_files/Makefile test_files/dummy.c
+-chl test_files/Makefile
+-clo test_files/dummy.c
+-clo test_files/Makefile test_files/dummy.c
+-clo test_files/Makefile
+-cnh test_files/dummy.c
+-cnh test_files/Makefile test_files/dummy.c
+-cnh test_files/Makefile
+-cno test_files/dummy.c
+-cno test_files/Makefile test_files/dummy.c
+-cno test_files/Makefile
+-cho test_files/dummy.c
+-cho test_files/Makefile test_files/dummy.c
+-cho test_files/Makefile
+-cnlh test_files/dummy.c
+-cnlh test_files/Makefile test_files/dummy.c
+-cnlh test_files/Makefile
+-cnlo test_files/dummy.c
+-cnlo test_files/Makefile test_files/dummy.c
+-cnlo test_files/Makefile
+-chlo test_files/dummy.c
+-chlo test_files/Makefile test_files/dummy.c
+-chlo test_files/Makefile
+-cnho test_files/dummy.c
+-cnho test_files/Makefile test_files/dummy.c
+-cnho test_files/Makefile
+-ocnlh test_files/dummy.c
+-ocnlh test_files/Makefile test_files/dummy.c
+-ocnlh test_files/Makefile
 -l test_files/dummy.c
--l test_files/dummy.c test_files/Makefile
+-l test_files/Makefile test_files/dummy.c
 -l test_files/Makefile
+-nl test_files/dummy.c
+-nl test_files/Makefile test_files/dummy.c
+-nl test_files/Makefile
 -hl test_files/dummy.c
--hl test_files/dummy.c test_files/Makefile
+-hl test_files/Makefile test_files/dummy.c
 -hl test_files/Makefile
+-lo test_files/dummy.c
+-lo test_files/Makefile test_files/dummy.c
+-lo test_files/Makefile
+-nlh test_files/dummy.c
+-nlh test_files/Makefile test_files/dummy.c
+-nlh test_files/Makefile
+-nlo test_files/dummy.c
+-nlo test_files/Makefile test_files/dummy.c
+-nlo test_files/Makefile
+-hlo test_files/dummy.c
+-hlo test_files/Makefile test_files/dummy.c
+-hlo test_files/Makefile
+-nlho test_files/dummy.c
+-nlho test_files/Makefile test_files/dummy.c
+-nlho test_files/Makefile
+-n test_files/dummy.c
+-n test_files/Makefile test_files/dummy.c
+-n test_files/Makefile
+-nh test_files/dummy.c
+-nh test_files/Makefile test_files/dummy.c
+-nh test_files/Makefile
+-no test_files/dummy.c
+-no test_files/Makefile test_files/dummy.c
+-no test_files/Makefile
+-nho test_files/dummy.c
+-nho test_files/Makefile test_files/dummy.c
+-nho test_files/Makefile
 -h test_files/dummy.c
--h test_files/dummy.c test_files/Makefile
+-h test_files/Makefile test_files/dummy.c
 -h test_files/Makefile
+-ho test_files/dummy.c
+-ho test_files/Makefile test_files/dummy.c
+-ho test_files/Makefile
+-o test_files/dummy.c
+-o test_files/Makefile test_files/dummy.c
+-o test_files/Makefile
 test_files/dummy.c
-test_files/dummy.c test_files/Makefile
+test_files/Makefile test_files/dummy.c
 test_files/Makefile

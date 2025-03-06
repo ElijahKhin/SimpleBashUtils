@@ -1,6 +1,6 @@
 
 
-
+-
 
 
 
@@ -10,11 +10,11 @@
 int main() {
 	FILE* file = NULL;
 	
-	file = fopen("dummy.cc", "r");
-	if (!file) {fprintf fprintf(stderr, "not opened"); exit(1); fprintf;}
+	file = fopen("dummy.c", "r");
+	if (!file) a{fprintf a fprintf(stderr, "not opened"); exit(1); fprintf;}
 	fprintf(stdout, "opened\n");
 
-
+--
 
 
 

@@ -1,9 +1,9 @@
-# --- PROJECT S21_CAT ---
+# --- PROJECT S21_GREP ---
 NAME = s21_grep
 
 HEADERS = $(NAME).h
 
-SRC = flagsParsing.c Grep.c
+SRC = flagsParsing.c # Grep.c
 
 PREREQ = $(HEADERS) Makefile ../s21_common/s21_common.a
 
@@ -13,9 +13,10 @@ OBJ = $(SRC:%.c=$(OBJ_FOLDER)/%.o)
 CC = gcc
 FLAGS = -std=c11 -Wextra -Wall -I.
 
-# --- TESTING S21_CAT ---
+# --- TESTING S21_GREP ---
 TCC = g++
 TESTS = $(NAME)_tests.cc
+GT_FILTER = "*"
 TESTS_BIN = tests_bin_$(NAME)
 GCOV_REPORT_NAME = tests_coverage_$(NAME)
 
@@ -74,7 +75,7 @@ full_coverage_combo.csv: py_script
 
 tests: full_coverage_combo.csv
 	@make tests -C ../s21_common/
-	@$(TCC) -std=c++17 -I. $(TESTS) $(OBJ) ../s21_common/s21_common.a -lgtest -lgtest_main -pthread -o $(TESTS_BIN)
+	@$(TCC) -std=c++17  -I. $(TESTS) $(OBJ) ../s21_common/s21_common.a -lgtest -lgtest_main -pthread -o $(TESTS_BIN)
 .PHONY: test
 
 local_tests: all
@@ -82,13 +83,12 @@ local_tests: all
 	grep $(GREP_FLAGS) $(PATTERN) dummy.c > unx_grep
 	diff my_grep unx_grep
 
-show_tests_result: tests
-	@./$(TESTS_BIN)
+show_tests_result: fclean tests
+	@./$(TESTS_BIN) --gtest_filter=$(GT_FILTER)
 .PHONY: launch_test_bin
 
 leaks: tests
-	@make leaks -C ../s21_common/
-	@leaks -quiet --atExit -- ./$(TESTS_BIN)
+	@leaks -quiet --atExit -- ./$(TESTS_BIN) --gtest_filter=$(GT_FILTER)
 .PHONY: leaks
 
 correct_format:

@@ -1,0 +1,22 @@
+
+
+This is basic testing file with patterns:
+-
+pat1
+pat2
+pat3
+dummy
+a
+
+
+
+Now they will appear in random order.
+
+-
+This is pat3 order a with pat1 no dummy
+---
+
+meaning pat1 at a all
+
+---
+

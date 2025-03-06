@@ -2,7 +2,7 @@ from itertools import combinations_with_replacement
 import pandas as pd
 
 
-flags = ['i', 'v', 'c', 'l', 'h']
+flags = ['i', 'v', 'c', 'l', 'n', 'h', 'o']
 files = ['test_files/dummy.c', 'test_files/Makefile']
 
 flags_cmb = ['-'+''.join(list(set(i))) for i in list(combinations_with_replacement(flags, len(flags)))]
