@@ -1389,7 +1389,6 @@ TEST (ParseFlags, PATTERN_WO_EF) {
 	regfree(&patterns.regex);
 }
 
-
 TEST(GREP, COMBO) {
 	std::ifstream file_combo;
 	file_combo.open("test_files/full_coverage_combo.csv");

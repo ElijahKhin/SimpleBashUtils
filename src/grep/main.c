@@ -16,11 +16,13 @@ int main(int argc, char* argv[]) {
 
 	if (argc == 1) { fprintf(stderr, ERROR_NO_ARGS); exit(1); }
 	ParseFlags(argc, &argv, &flags, &map, &patterns);
-	Grep(&argv, &flags, &map, &patterns);
+	if (patterns.print_opt) {
+		Grep(&argv, &flags, &map, &patterns);
+	}
 
 	free(map.whoiswho);
 	free(patterns.efidx);
-//	if (patterns.full_pattern) {
-//		free(patterns.full_pattern);
-//	}
+	if (patterns.pnum && patterns.full_pattern != NULL) {
+		free(patterns.full_pattern);
+	}
 }

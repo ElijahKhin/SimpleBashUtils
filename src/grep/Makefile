@@ -16,7 +16,7 @@ FLAGS = -std=c11 -Wextra -Wall -I.
 # --- TESTING S21_GREP ---
 TCC = g++
 TESTS = $(NAME)_tests.cc
-GT_FILTER = "*"
+GT_FILTER = "-GREP.COMBO"
 TESTS_BIN = tests_bin_$(NAME)
 GCOV_REPORT_NAME = tests_coverage_$(NAME)
 

@@ -33,26 +33,8 @@ static void print4C(Flags* flags, const char* file_name, int mnum, int nmatched)
 	}
 }
 
-static void printBasic(Flags* flags, char* line, const char* file_name, int mnum, int numLine) {
-	if (mnum != 1) {
-		if (flags->h) {
-			if (flags->n) {
-				fprintf(stdout, "%d:%s", numLine, line);
-			}
-			else {
-				fprintf(stdout, "%s", line);
-			}
-		}
-		else {
-			if (flags->n) {
-				fprintf(stdout, "%s:%d:%s", file_name, numLine, line);
-			}
-			else {
-				fprintf(stdout, "%s:%s", file_name, line);
-			}
-		}
-	}
-	else {
+static void printBasicMultiFile(Flags* flags, const char* line, const char* file_name, int numLine) {
+	if (flags->h) {
 		if (flags->n) {
 			fprintf(stdout, "%d:%s", numLine, line);
 		}
@@ -60,49 +42,73 @@ static void printBasic(Flags* flags, char* line, const char* file_name, int mnum
 			fprintf(stdout, "%s", line);
 		}
 	}
+	else {
+		if (flags->n) {
+			fprintf(stdout, "%s:%d:%s", file_name, numLine, line);
+		}
+		else {
+			fprintf(stdout, "%s:%s", file_name, line);
+		}
+	}
+}
+
+static void printBasicOneFile(Flags* flags, const char* line, int numLine) {
+	if (flags->n) {
+		fprintf(stdout, "%d:%s", numLine, line);
+	}
+	else {
+		fprintf(stdout, "%s", line);
+	}
+}
+
+static void printBasic(Flags* flags, const char* line, const char* file_name, int mnum, size_t numLine) {
+	if (mnum != 1) {
+		printBasicMultiFile(flags, line, file_name, numLine);
+	}
+	else {
+		printBasicOneFile(flags, line, numLine);
+	}
 	if (flags->o && !flags->v) {
 		fprintf(stdout, "\n");
 	}
 }
 
-//static void Tree(Regex* patterns, FILE* filep, char* file_name, int mnum, Flags* flags) {
-//
-//
-//		int offset = 0, printed = 0;
-//		if (patterns->full) {
-//			
-//		}
-//		
-//		while (regexec(&patterns->regex, line + offset, 1, pmatch, 0) == (flags->v ? REG_NOMATCH : 0) && !printed) {
-//			if (flags->l) {
-//				print4L(flags, file_name, mnum);
-//				return ;
-//			}
-//			if (flags->o) {
-//				int start = pmatch[0].rm_so + offset;
-//				int end = pmatch[0].rm_eo + offset;
-//				char oline[end-start];
-//				strncpy(oline, line + start, end-start);
-//				printBasic(flags, oline, file_name, mnum, numLine);
-//				offset = end;
-//				}
-//			}
-//			else {
-//				if ((!flags->o && !flags->c) || (flags->o && flags->v && !flags->c)) {
-//					printBasic(flags, line, file_name, mnum, numLine);
-//					printed = 1;
-//				}
-//			}
-//			if (flags->c) {
-//				++nmatched;
-//				break;
-//			}
-//		}
-//	}
-//}
+static bool findPattern(const char* line, regmatch_t pmatch[1], Flags* flags, Regex* patterns) {
+	return regexec(&patterns->regex, line, 1, pmatch, 0) == (flags->v ? REG_NOMATCH : 0);
+}
+
+static void PrintComplexCase(const char* line, const char* file_name, int mnum, size_t numLine, Flags* flags, Regex* patterns) {
+	int offset = 0;
+	regmatch_t pmatch[1];
+	while (findPattern(line + offset, pmatch, flags, patterns)) {
+		int start = pmatch[0].rm_so + offset;
+		int end = pmatch[0].rm_eo + offset;
+		char oline[end-start];
+		strncpy(oline, line + start, end-start);
+		printBasic(flags, oline, file_name, mnum, numLine);
+		offset = end;
+	}
+}
+
+static int PrintSimpleCase(const char* line, const char* file_name, int mnum, size_t numLine, int* nmatched, Flags* flags, Regex* patterns) {
+	regmatch_t pmatch[1];
+
+	if (patterns->print_opt == 1 || findPattern(line, pmatch, flags, patterns)) {
+		if (flags->l) {
+			print4L(flags, file_name, mnum);
+			return 1;
+		}
+		else if (flags->c) {
+			++(*nmatched);
+		}
+		else {
+			printBasic(flags, line, file_name, mnum, numLine);
+		}
+	}
+	return 0;
+}
 
 static void PrintBasedOnOpt(FILE* filep, const char* file_name, int mnum, Flags* flags, Regex* patterns) {
-	regmatch_t pmatch[1];
 	int nmatched = 0; 
 	size_t numLine = 0;
 	size_t bufsize = 32;
@@ -111,41 +117,13 @@ static void PrintBasedOnOpt(FILE* filep, const char* file_name, int mnum, Flags*
 	if (!line) exit(1);
 
 	while (getline(&line, &bufsize, filep) != -1) {
-		int offset = 0;
 		numLine++;
-		if (patterns->print_opt == 2) {
-			while (regexec(&patterns->regex, line + offset, 1, pmatch, 0) == (flags->v ? REG_NOMATCH : 0)) {
-				if (flags->l) {
-					print4L(flags, file_name, mnum);
-					return ;
-				}
-				else if (flags->c) {
-					++nmatched;
-					break;
-				}
-				else if (flags->o) {
-					int start = pmatch[0].rm_so + offset;
-					int end = pmatch[0].rm_eo + offset;
-					char oline[end-start];
-					strncpy(oline, line + start, end-start);
-					printBasic(flags, oline, file_name, mnum, numLine);
-					offset = end;
-				}
-				else  {
-					printBasic(flags, line, file_name, mnum, numLine);
-					break;
-				}
-			}
+		if (flags->o) {
+			PrintComplexCase(line, file_name, mnum, numLine, flags, patterns);
 		}
-		if (patterns->print_opt == 1) {
-			if (flags->l) {
-				print4L(flags, file_name, mnum);
-			}
-			else if (flags->c) {
-				++nmatched;
-			}
-			else {
-				printBasic(flags, line, file_name, mnum, numLine);
+		else {
+			if (PrintSimpleCase(line, file_name, mnum, numLine, &nmatched, flags, patterns)) {
+				return ;
 			}
 		}
 	}
@@ -161,13 +139,14 @@ void Grep(char*** argv, Flags* flags, Map* map, Regex* patterns) {
 	FILE *filep = NULL;
 	char *file_name;
 
+	if (!patterns->print_opt) return ;
 	mnum = (patterns->pnum ? map->mnum : map->mnum - 1);
 	for (int i = (patterns->pnum ? 0 : 1); i < map->mnum; ++i) {
 		file_name = (*argv)[map->whoiswho[i]];
 		filep = fopen(file_name, "r");
 		if (!filep) {
 			if (!flags->s) {
-				fprintf(stdout, "s21_grep: %s: No such file or directory\n", file_name);
+				fprintf(stderr, "grep: %s: No such file or directory\n", file_name);
 			}
 			continue;
 		}
