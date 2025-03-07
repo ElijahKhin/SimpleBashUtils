@@ -44,8 +44,8 @@ extern "C" {
 
 	/* Getting Valid Flags */
 
-	void Alloc4E(int* len, char* pattern, Regex* patterns);
-	void Alloc4F(int* len, char* file_name, Regex* patterns);
+	void Alloc4E(int* len, const char* pattern, Regex* patterns);
+	void Alloc4F(int* len, const char* file_name, Regex* patterns);
 	bool AllocFullPattern(char*** argv, Regex* patterns);
 	void GetPrintOption(bool alloc_res, Regex* patterns, Flags* flags);
 	void ConcatPattern(char*** argv, Regex* patterns);

@@ -3,7 +3,7 @@ NAME = s21_grep
 
 HEADERS = $(NAME).h
 
-SRC = flagsParsing.c # Grep.c
+SRC = flagsParsing.c Grep.c
 
 PREREQ = $(HEADERS) Makefile ../s21_common/s21_common.a
 
@@ -83,7 +83,7 @@ local_tests: all
 	grep $(GREP_FLAGS) $(PATTERN) dummy.c > unx_grep
 	diff my_grep unx_grep
 
-show_tests_result: fclean tests
+show_tests_result: fclean tests full_coverage_combo.csv
 	@./$(TESTS_BIN) --gtest_filter=$(GT_FILTER)
 .PHONY: launch_test_bin
 

@@ -1,0 +1,896 @@
+-i test_files/empty_file
+-i test_files/empty_file test_files/empty_patt
+-i test_files/empty_file test_files/multi_patt
+-i test_files/empty_file test_files/empty_patt test_files/multi_patt
+-i test_files/empty_patt
+-i test_files/empty_patt test_files/multi_patt
+-i test_files/multi_patt
+-vi test_files/empty_file
+-vi test_files/empty_file test_files/empty_patt
+-vi test_files/empty_file test_files/multi_patt
+-vi test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vi test_files/empty_patt
+-vi test_files/empty_patt test_files/multi_patt
+-vi test_files/multi_patt
+-ci test_files/empty_file
+-ci test_files/empty_file test_files/empty_patt
+-ci test_files/empty_file test_files/multi_patt
+-ci test_files/empty_file test_files/empty_patt test_files/multi_patt
+-ci test_files/empty_patt
+-ci test_files/empty_patt test_files/multi_patt
+-ci test_files/multi_patt
+-li test_files/empty_file
+-li test_files/empty_file test_files/empty_patt
+-li test_files/empty_file test_files/multi_patt
+-li test_files/empty_file test_files/empty_patt test_files/multi_patt
+-li test_files/empty_patt
+-li test_files/empty_patt test_files/multi_patt
+-li test_files/multi_patt
+-ni test_files/empty_file
+-ni test_files/empty_file test_files/empty_patt
+-ni test_files/empty_file test_files/multi_patt
+-ni test_files/empty_file test_files/empty_patt test_files/multi_patt
+-ni test_files/empty_patt
+-ni test_files/empty_patt test_files/multi_patt
+-ni test_files/multi_patt
+-hi test_files/empty_file
+-hi test_files/empty_file test_files/empty_patt
+-hi test_files/empty_file test_files/multi_patt
+-hi test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hi test_files/empty_patt
+-hi test_files/empty_patt test_files/multi_patt
+-hi test_files/multi_patt
+-oi test_files/empty_file
+-oi test_files/empty_file test_files/empty_patt
+-oi test_files/empty_file test_files/multi_patt
+-oi test_files/empty_file test_files/empty_patt test_files/multi_patt
+-oi test_files/empty_patt
+-oi test_files/empty_patt test_files/multi_patt
+-oi test_files/multi_patt
+-vci test_files/empty_file
+-vci test_files/empty_file test_files/empty_patt
+-vci test_files/empty_file test_files/multi_patt
+-vci test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vci test_files/empty_patt
+-vci test_files/empty_patt test_files/multi_patt
+-vci test_files/multi_patt
+-vli test_files/empty_file
+-vli test_files/empty_file test_files/empty_patt
+-vli test_files/empty_file test_files/multi_patt
+-vli test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vli test_files/empty_patt
+-vli test_files/empty_patt test_files/multi_patt
+-vli test_files/multi_patt
+-vni test_files/empty_file
+-vni test_files/empty_file test_files/empty_patt
+-vni test_files/empty_file test_files/multi_patt
+-vni test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vni test_files/empty_patt
+-vni test_files/empty_patt test_files/multi_patt
+-vni test_files/multi_patt
+-hvi test_files/empty_file
+-hvi test_files/empty_file test_files/empty_patt
+-hvi test_files/empty_file test_files/multi_patt
+-hvi test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hvi test_files/empty_patt
+-hvi test_files/empty_patt test_files/multi_patt
+-hvi test_files/multi_patt
+-voi test_files/empty_file
+-voi test_files/empty_file test_files/empty_patt
+-voi test_files/empty_file test_files/multi_patt
+-voi test_files/empty_file test_files/empty_patt test_files/multi_patt
+-voi test_files/empty_patt
+-voi test_files/empty_patt test_files/multi_patt
+-voi test_files/multi_patt
+-cli test_files/empty_file
+-cli test_files/empty_file test_files/empty_patt
+-cli test_files/empty_file test_files/multi_patt
+-cli test_files/empty_file test_files/empty_patt test_files/multi_patt
+-cli test_files/empty_patt
+-cli test_files/empty_patt test_files/multi_patt
+-cli test_files/multi_patt
+-nci test_files/empty_file
+-nci test_files/empty_file test_files/empty_patt
+-nci test_files/empty_file test_files/multi_patt
+-nci test_files/empty_file test_files/empty_patt test_files/multi_patt
+-nci test_files/empty_patt
+-nci test_files/empty_patt test_files/multi_patt
+-nci test_files/multi_patt
+-hci test_files/empty_file
+-hci test_files/empty_file test_files/empty_patt
+-hci test_files/empty_file test_files/multi_patt
+-hci test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hci test_files/empty_patt
+-hci test_files/empty_patt test_files/multi_patt
+-hci test_files/multi_patt
+-oci test_files/empty_file
+-oci test_files/empty_file test_files/empty_patt
+-oci test_files/empty_file test_files/multi_patt
+-oci test_files/empty_file test_files/empty_patt test_files/multi_patt
+-oci test_files/empty_patt
+-oci test_files/empty_patt test_files/multi_patt
+-oci test_files/multi_patt
+-nli test_files/empty_file
+-nli test_files/empty_file test_files/empty_patt
+-nli test_files/empty_file test_files/multi_patt
+-nli test_files/empty_file test_files/empty_patt test_files/multi_patt
+-nli test_files/empty_patt
+-nli test_files/empty_patt test_files/multi_patt
+-nli test_files/multi_patt
+-hli test_files/empty_file
+-hli test_files/empty_file test_files/empty_patt
+-hli test_files/empty_file test_files/multi_patt
+-hli test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hli test_files/empty_patt
+-hli test_files/empty_patt test_files/multi_patt
+-hli test_files/multi_patt
+-oli test_files/empty_file
+-oli test_files/empty_file test_files/empty_patt
+-oli test_files/empty_file test_files/multi_patt
+-oli test_files/empty_file test_files/empty_patt test_files/multi_patt
+-oli test_files/empty_patt
+-oli test_files/empty_patt test_files/multi_patt
+-oli test_files/multi_patt
+-hni test_files/empty_file
+-hni test_files/empty_file test_files/empty_patt
+-hni test_files/empty_file test_files/multi_patt
+-hni test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hni test_files/empty_patt
+-hni test_files/empty_patt test_files/multi_patt
+-hni test_files/multi_patt
+-oni test_files/empty_file
+-oni test_files/empty_file test_files/empty_patt
+-oni test_files/empty_file test_files/multi_patt
+-oni test_files/empty_file test_files/empty_patt test_files/multi_patt
+-oni test_files/empty_patt
+-oni test_files/empty_patt test_files/multi_patt
+-oni test_files/multi_patt
+-hoi test_files/empty_file
+-hoi test_files/empty_file test_files/empty_patt
+-hoi test_files/empty_file test_files/multi_patt
+-hoi test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hoi test_files/empty_patt
+-hoi test_files/empty_patt test_files/multi_patt
+-hoi test_files/multi_patt
+-vcli test_files/empty_file
+-vcli test_files/empty_file test_files/empty_patt
+-vcli test_files/empty_file test_files/multi_patt
+-vcli test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vcli test_files/empty_patt
+-vcli test_files/empty_patt test_files/multi_patt
+-vcli test_files/multi_patt
+-nvci test_files/empty_file
+-nvci test_files/empty_file test_files/empty_patt
+-nvci test_files/empty_file test_files/multi_patt
+-nvci test_files/empty_file test_files/empty_patt test_files/multi_patt
+-nvci test_files/empty_patt
+-nvci test_files/empty_patt test_files/multi_patt
+-nvci test_files/multi_patt
+-hvci test_files/empty_file
+-hvci test_files/empty_file test_files/empty_patt
+-hvci test_files/empty_file test_files/multi_patt
+-hvci test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hvci test_files/empty_patt
+-hvci test_files/empty_patt test_files/multi_patt
+-hvci test_files/multi_patt
+-voci test_files/empty_file
+-voci test_files/empty_file test_files/empty_patt
+-voci test_files/empty_file test_files/multi_patt
+-voci test_files/empty_file test_files/empty_patt test_files/multi_patt
+-voci test_files/empty_patt
+-voci test_files/empty_patt test_files/multi_patt
+-voci test_files/multi_patt
+-vnli test_files/empty_file
+-vnli test_files/empty_file test_files/empty_patt
+-vnli test_files/empty_file test_files/multi_patt
+-vnli test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vnli test_files/empty_patt
+-vnli test_files/empty_patt test_files/multi_patt
+-vnli test_files/multi_patt
+-hvli test_files/empty_file
+-hvli test_files/empty_file test_files/empty_patt
+-hvli test_files/empty_file test_files/multi_patt
+-hvli test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hvli test_files/empty_patt
+-hvli test_files/empty_patt test_files/multi_patt
+-hvli test_files/multi_patt
+-voli test_files/empty_file
+-voli test_files/empty_file test_files/empty_patt
+-voli test_files/empty_file test_files/multi_patt
+-voli test_files/empty_file test_files/empty_patt test_files/multi_patt
+-voli test_files/empty_patt
+-voli test_files/empty_patt test_files/multi_patt
+-voli test_files/multi_patt
+-hvni test_files/empty_file
+-hvni test_files/empty_file test_files/empty_patt
+-hvni test_files/empty_file test_files/multi_patt
+-hvni test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hvni test_files/empty_patt
+-hvni test_files/empty_patt test_files/multi_patt
+-hvni test_files/multi_patt
+-voni test_files/empty_file
+-voni test_files/empty_file test_files/empty_patt
+-voni test_files/empty_file test_files/multi_patt
+-voni test_files/empty_file test_files/empty_patt test_files/multi_patt
+-voni test_files/empty_patt
+-voni test_files/empty_patt test_files/multi_patt
+-voni test_files/multi_patt
+-hvoi test_files/empty_file
+-hvoi test_files/empty_file test_files/empty_patt
+-hvoi test_files/empty_file test_files/multi_patt
+-hvoi test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hvoi test_files/empty_patt
+-hvoi test_files/empty_patt test_files/multi_patt
+-hvoi test_files/multi_patt
+-ncli test_files/empty_file
+-ncli test_files/empty_file test_files/empty_patt
+-ncli test_files/empty_file test_files/multi_patt
+-ncli test_files/empty_file test_files/empty_patt test_files/multi_patt
+-ncli test_files/empty_patt
+-ncli test_files/empty_patt test_files/multi_patt
+-ncli test_files/multi_patt
+-hcli test_files/empty_file
+-hcli test_files/empty_file test_files/empty_patt
+-hcli test_files/empty_file test_files/multi_patt
+-hcli test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hcli test_files/empty_patt
+-hcli test_files/empty_patt test_files/multi_patt
+-hcli test_files/multi_patt
+-ocli test_files/empty_file
+-ocli test_files/empty_file test_files/empty_patt
+-ocli test_files/empty_file test_files/multi_patt
+-ocli test_files/empty_file test_files/empty_patt test_files/multi_patt
+-ocli test_files/empty_patt
+-ocli test_files/empty_patt test_files/multi_patt
+-ocli test_files/multi_patt
+-nhci test_files/empty_file
+-nhci test_files/empty_file test_files/empty_patt
+-nhci test_files/empty_file test_files/multi_patt
+-nhci test_files/empty_file test_files/empty_patt test_files/multi_patt
+-nhci test_files/empty_patt
+-nhci test_files/empty_patt test_files/multi_patt
+-nhci test_files/multi_patt
+-noci test_files/empty_file
+-noci test_files/empty_file test_files/empty_patt
+-noci test_files/empty_file test_files/multi_patt
+-noci test_files/empty_file test_files/empty_patt test_files/multi_patt
+-noci test_files/empty_patt
+-noci test_files/empty_patt test_files/multi_patt
+-noci test_files/multi_patt
+-hoci test_files/empty_file
+-hoci test_files/empty_file test_files/empty_patt
+-hoci test_files/empty_file test_files/multi_patt
+-hoci test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hoci test_files/empty_patt
+-hoci test_files/empty_patt test_files/multi_patt
+-hoci test_files/multi_patt
+-hnli test_files/empty_file
+-hnli test_files/empty_file test_files/empty_patt
+-hnli test_files/empty_file test_files/multi_patt
+-hnli test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hnli test_files/empty_patt
+-hnli test_files/empty_patt test_files/multi_patt
+-hnli test_files/multi_patt
+-onli test_files/empty_file
+-onli test_files/empty_file test_files/empty_patt
+-onli test_files/empty_file test_files/multi_patt
+-onli test_files/empty_file test_files/empty_patt test_files/multi_patt
+-onli test_files/empty_patt
+-onli test_files/empty_patt test_files/multi_patt
+-onli test_files/multi_patt
+-holi test_files/empty_file
+-holi test_files/empty_file test_files/empty_patt
+-holi test_files/empty_file test_files/multi_patt
+-holi test_files/empty_file test_files/empty_patt test_files/multi_patt
+-holi test_files/empty_patt
+-holi test_files/empty_patt test_files/multi_patt
+-holi test_files/multi_patt
+-honi test_files/empty_file
+-honi test_files/empty_file test_files/empty_patt
+-honi test_files/empty_file test_files/multi_patt
+-honi test_files/empty_file test_files/empty_patt test_files/multi_patt
+-honi test_files/empty_patt
+-honi test_files/empty_patt test_files/multi_patt
+-honi test_files/multi_patt
+-nivcl test_files/empty_file
+-nivcl test_files/empty_file test_files/empty_patt
+-nivcl test_files/empty_file test_files/multi_patt
+-nivcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-nivcl test_files/empty_patt
+-nivcl test_files/empty_patt test_files/multi_patt
+-nivcl test_files/multi_patt
+-hivcl test_files/empty_file
+-hivcl test_files/empty_file test_files/empty_patt
+-hivcl test_files/empty_file test_files/multi_patt
+-hivcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hivcl test_files/empty_patt
+-hivcl test_files/empty_patt test_files/multi_patt
+-hivcl test_files/multi_patt
+-oivcl test_files/empty_file
+-oivcl test_files/empty_file test_files/empty_patt
+-oivcl test_files/empty_file test_files/multi_patt
+-oivcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-oivcl test_files/empty_patt
+-oivcl test_files/empty_patt test_files/multi_patt
+-oivcl test_files/multi_patt
+-hnivc test_files/empty_file
+-hnivc test_files/empty_file test_files/empty_patt
+-hnivc test_files/empty_file test_files/multi_patt
+-hnivc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hnivc test_files/empty_patt
+-hnivc test_files/empty_patt test_files/multi_patt
+-hnivc test_files/multi_patt
+-noivc test_files/empty_file
+-noivc test_files/empty_file test_files/empty_patt
+-noivc test_files/empty_file test_files/multi_patt
+-noivc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-noivc test_files/empty_patt
+-noivc test_files/empty_patt test_files/multi_patt
+-noivc test_files/multi_patt
+-hoivc test_files/empty_file
+-hoivc test_files/empty_file test_files/empty_patt
+-hoivc test_files/empty_file test_files/multi_patt
+-hoivc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hoivc test_files/empty_patt
+-hoivc test_files/empty_patt test_files/multi_patt
+-hoivc test_files/multi_patt
+-hnivl test_files/empty_file
+-hnivl test_files/empty_file test_files/empty_patt
+-hnivl test_files/empty_file test_files/multi_patt
+-hnivl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hnivl test_files/empty_patt
+-hnivl test_files/empty_patt test_files/multi_patt
+-hnivl test_files/multi_patt
+-onivl test_files/empty_file
+-onivl test_files/empty_file test_files/empty_patt
+-onivl test_files/empty_file test_files/multi_patt
+-onivl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-onivl test_files/empty_patt
+-onivl test_files/empty_patt test_files/multi_patt
+-onivl test_files/multi_patt
+-hoivl test_files/empty_file
+-hoivl test_files/empty_file test_files/empty_patt
+-hoivl test_files/empty_file test_files/multi_patt
+-hoivl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hoivl test_files/empty_patt
+-hoivl test_files/empty_patt test_files/multi_patt
+-hoivl test_files/multi_patt
+-honiv test_files/empty_file
+-honiv test_files/empty_file test_files/empty_patt
+-honiv test_files/empty_file test_files/multi_patt
+-honiv test_files/empty_file test_files/empty_patt test_files/multi_patt
+-honiv test_files/empty_patt
+-honiv test_files/empty_patt test_files/multi_patt
+-honiv test_files/multi_patt
+-hnicl test_files/empty_file
+-hnicl test_files/empty_file test_files/empty_patt
+-hnicl test_files/empty_file test_files/multi_patt
+-hnicl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hnicl test_files/empty_patt
+-hnicl test_files/empty_patt test_files/multi_patt
+-hnicl test_files/multi_patt
+-noicl test_files/empty_file
+-noicl test_files/empty_file test_files/empty_patt
+-noicl test_files/empty_file test_files/multi_patt
+-noicl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-noicl test_files/empty_patt
+-noicl test_files/empty_patt test_files/multi_patt
+-noicl test_files/multi_patt
+-hoicl test_files/empty_file
+-hoicl test_files/empty_file test_files/empty_patt
+-hoicl test_files/empty_file test_files/multi_patt
+-hoicl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hoicl test_files/empty_patt
+-hoicl test_files/empty_patt test_files/multi_patt
+-hoicl test_files/multi_patt
+-honic test_files/empty_file
+-honic test_files/empty_file test_files/empty_patt
+-honic test_files/empty_file test_files/multi_patt
+-honic test_files/empty_file test_files/empty_patt test_files/multi_patt
+-honic test_files/empty_patt
+-honic test_files/empty_patt test_files/multi_patt
+-honic test_files/multi_patt
+-honil test_files/empty_file
+-honil test_files/empty_file test_files/empty_patt
+-honil test_files/empty_file test_files/multi_patt
+-honil test_files/empty_file test_files/empty_patt test_files/multi_patt
+-honil test_files/empty_patt
+-honil test_files/empty_patt test_files/multi_patt
+-honil test_files/multi_patt
+-hnivcl test_files/empty_file
+-hnivcl test_files/empty_file test_files/empty_patt
+-hnivcl test_files/empty_file test_files/multi_patt
+-hnivcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hnivcl test_files/empty_patt
+-hnivcl test_files/empty_patt test_files/multi_patt
+-hnivcl test_files/multi_patt
+-noivcl test_files/empty_file
+-noivcl test_files/empty_file test_files/empty_patt
+-noivcl test_files/empty_file test_files/multi_patt
+-noivcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-noivcl test_files/empty_patt
+-noivcl test_files/empty_patt test_files/multi_patt
+-noivcl test_files/multi_patt
+-hoivcl test_files/empty_file
+-hoivcl test_files/empty_file test_files/empty_patt
+-hoivcl test_files/empty_file test_files/multi_patt
+-hoivcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hoivcl test_files/empty_patt
+-hoivcl test_files/empty_patt test_files/multi_patt
+-hoivcl test_files/multi_patt
+-hnoivc test_files/empty_file
+-hnoivc test_files/empty_file test_files/empty_patt
+-hnoivc test_files/empty_file test_files/multi_patt
+-hnoivc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hnoivc test_files/empty_patt
+-hnoivc test_files/empty_patt test_files/multi_patt
+-hnoivc test_files/multi_patt
+-hnoivl test_files/empty_file
+-hnoivl test_files/empty_file test_files/empty_patt
+-hnoivl test_files/empty_file test_files/multi_patt
+-hnoivl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hnoivl test_files/empty_patt
+-hnoivl test_files/empty_patt test_files/multi_patt
+-hnoivl test_files/multi_patt
+-hnoicl test_files/empty_file
+-hnoicl test_files/empty_file test_files/empty_patt
+-hnoicl test_files/empty_file test_files/multi_patt
+-hnoicl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hnoicl test_files/empty_patt
+-hnoicl test_files/empty_patt test_files/multi_patt
+-hnoicl test_files/multi_patt
+-hnoivcl test_files/empty_file
+-hnoivcl test_files/empty_file test_files/empty_patt
+-hnoivcl test_files/empty_file test_files/multi_patt
+-hnoivcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hnoivcl test_files/empty_patt
+-hnoivcl test_files/empty_patt test_files/multi_patt
+-hnoivcl test_files/multi_patt
+-v test_files/empty_file
+-v test_files/empty_file test_files/empty_patt
+-v test_files/empty_file test_files/multi_patt
+-v test_files/empty_file test_files/empty_patt test_files/multi_patt
+-v test_files/empty_patt
+-v test_files/empty_patt test_files/multi_patt
+-v test_files/multi_patt
+-vc test_files/empty_file
+-vc test_files/empty_file test_files/empty_patt
+-vc test_files/empty_file test_files/multi_patt
+-vc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vc test_files/empty_patt
+-vc test_files/empty_patt test_files/multi_patt
+-vc test_files/multi_patt
+-vl test_files/empty_file
+-vl test_files/empty_file test_files/empty_patt
+-vl test_files/empty_file test_files/multi_patt
+-vl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vl test_files/empty_patt
+-vl test_files/empty_patt test_files/multi_patt
+-vl test_files/multi_patt
+-vn test_files/empty_file
+-vn test_files/empty_file test_files/empty_patt
+-vn test_files/empty_file test_files/multi_patt
+-vn test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vn test_files/empty_patt
+-vn test_files/empty_patt test_files/multi_patt
+-vn test_files/multi_patt
+-hv test_files/empty_file
+-hv test_files/empty_file test_files/empty_patt
+-hv test_files/empty_file test_files/multi_patt
+-hv test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hv test_files/empty_patt
+-hv test_files/empty_patt test_files/multi_patt
+-hv test_files/multi_patt
+-vo test_files/empty_file
+-vo test_files/empty_file test_files/empty_patt
+-vo test_files/empty_file test_files/multi_patt
+-vo test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vo test_files/empty_patt
+-vo test_files/empty_patt test_files/multi_patt
+-vo test_files/multi_patt
+-vcl test_files/empty_file
+-vcl test_files/empty_file test_files/empty_patt
+-vcl test_files/empty_file test_files/multi_patt
+-vcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vcl test_files/empty_patt
+-vcl test_files/empty_patt test_files/multi_patt
+-vcl test_files/multi_patt
+-nvc test_files/empty_file
+-nvc test_files/empty_file test_files/empty_patt
+-nvc test_files/empty_file test_files/multi_patt
+-nvc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-nvc test_files/empty_patt
+-nvc test_files/empty_patt test_files/multi_patt
+-nvc test_files/multi_patt
+-hvc test_files/empty_file
+-hvc test_files/empty_file test_files/empty_patt
+-hvc test_files/empty_file test_files/multi_patt
+-hvc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hvc test_files/empty_patt
+-hvc test_files/empty_patt test_files/multi_patt
+-hvc test_files/multi_patt
+-voc test_files/empty_file
+-voc test_files/empty_file test_files/empty_patt
+-voc test_files/empty_file test_files/multi_patt
+-voc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-voc test_files/empty_patt
+-voc test_files/empty_patt test_files/multi_patt
+-voc test_files/multi_patt
+-vnl test_files/empty_file
+-vnl test_files/empty_file test_files/empty_patt
+-vnl test_files/empty_file test_files/multi_patt
+-vnl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vnl test_files/empty_patt
+-vnl test_files/empty_patt test_files/multi_patt
+-vnl test_files/multi_patt
+-hvl test_files/empty_file
+-hvl test_files/empty_file test_files/empty_patt
+-hvl test_files/empty_file test_files/multi_patt
+-hvl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hvl test_files/empty_patt
+-hvl test_files/empty_patt test_files/multi_patt
+-hvl test_files/multi_patt
+-vol test_files/empty_file
+-vol test_files/empty_file test_files/empty_patt
+-vol test_files/empty_file test_files/multi_patt
+-vol test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vol test_files/empty_patt
+-vol test_files/empty_patt test_files/multi_patt
+-vol test_files/multi_patt
+-hvn test_files/empty_file
+-hvn test_files/empty_file test_files/empty_patt
+-hvn test_files/empty_file test_files/multi_patt
+-hvn test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hvn test_files/empty_patt
+-hvn test_files/empty_patt test_files/multi_patt
+-hvn test_files/multi_patt
+-von test_files/empty_file
+-von test_files/empty_file test_files/empty_patt
+-von test_files/empty_file test_files/multi_patt
+-von test_files/empty_file test_files/empty_patt test_files/multi_patt
+-von test_files/empty_patt
+-von test_files/empty_patt test_files/multi_patt
+-von test_files/multi_patt
+-hvo test_files/empty_file
+-hvo test_files/empty_file test_files/empty_patt
+-hvo test_files/empty_file test_files/multi_patt
+-hvo test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hvo test_files/empty_patt
+-hvo test_files/empty_patt test_files/multi_patt
+-hvo test_files/multi_patt
+-nvcl test_files/empty_file
+-nvcl test_files/empty_file test_files/empty_patt
+-nvcl test_files/empty_file test_files/multi_patt
+-nvcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-nvcl test_files/empty_patt
+-nvcl test_files/empty_patt test_files/multi_patt
+-nvcl test_files/multi_patt
+-hvcl test_files/empty_file
+-hvcl test_files/empty_file test_files/empty_patt
+-hvcl test_files/empty_file test_files/multi_patt
+-hvcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hvcl test_files/empty_patt
+-hvcl test_files/empty_patt test_files/multi_patt
+-hvcl test_files/multi_patt
+-vocl test_files/empty_file
+-vocl test_files/empty_file test_files/empty_patt
+-vocl test_files/empty_file test_files/multi_patt
+-vocl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vocl test_files/empty_patt
+-vocl test_files/empty_patt test_files/multi_patt
+-vocl test_files/multi_patt
+-nvhc test_files/empty_file
+-nvhc test_files/empty_file test_files/empty_patt
+-nvhc test_files/empty_file test_files/multi_patt
+-nvhc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-nvhc test_files/empty_patt
+-nvhc test_files/empty_patt test_files/multi_patt
+-nvhc test_files/multi_patt
+-nvoc test_files/empty_file
+-nvoc test_files/empty_file test_files/empty_patt
+-nvoc test_files/empty_file test_files/multi_patt
+-nvoc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-nvoc test_files/empty_patt
+-nvoc test_files/empty_patt test_files/multi_patt
+-nvoc test_files/multi_patt
+-hvoc test_files/empty_file
+-hvoc test_files/empty_file test_files/empty_patt
+-hvoc test_files/empty_file test_files/multi_patt
+-hvoc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hvoc test_files/empty_patt
+-hvoc test_files/empty_patt test_files/multi_patt
+-hvoc test_files/multi_patt
+-hvnl test_files/empty_file
+-hvnl test_files/empty_file test_files/empty_patt
+-hvnl test_files/empty_file test_files/multi_patt
+-hvnl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hvnl test_files/empty_patt
+-hvnl test_files/empty_patt test_files/multi_patt
+-hvnl test_files/multi_patt
+-vonl test_files/empty_file
+-vonl test_files/empty_file test_files/empty_patt
+-vonl test_files/empty_file test_files/multi_patt
+-vonl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-vonl test_files/empty_patt
+-vonl test_files/empty_patt test_files/multi_patt
+-vonl test_files/multi_patt
+-hvol test_files/empty_file
+-hvol test_files/empty_file test_files/empty_patt
+-hvol test_files/empty_file test_files/multi_patt
+-hvol test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hvol test_files/empty_patt
+-hvol test_files/empty_patt test_files/multi_patt
+-hvol test_files/multi_patt
+-hvon test_files/empty_file
+-hvon test_files/empty_file test_files/empty_patt
+-hvon test_files/empty_file test_files/multi_patt
+-hvon test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hvon test_files/empty_patt
+-hvon test_files/empty_patt test_files/multi_patt
+-hvon test_files/multi_patt
+-hnvcl test_files/empty_file
+-hnvcl test_files/empty_file test_files/empty_patt
+-hnvcl test_files/empty_file test_files/multi_patt
+-hnvcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hnvcl test_files/empty_patt
+-hnvcl test_files/empty_patt test_files/multi_patt
+-hnvcl test_files/multi_patt
+-novcl test_files/empty_file
+-novcl test_files/empty_file test_files/empty_patt
+-novcl test_files/empty_file test_files/multi_patt
+-novcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-novcl test_files/empty_patt
+-novcl test_files/empty_patt test_files/multi_patt
+-novcl test_files/multi_patt
+-hovcl test_files/empty_file
+-hovcl test_files/empty_file test_files/empty_patt
+-hovcl test_files/empty_file test_files/multi_patt
+-hovcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hovcl test_files/empty_patt
+-hovcl test_files/empty_patt test_files/multi_patt
+-hovcl test_files/multi_patt
+-honvc test_files/empty_file
+-honvc test_files/empty_file test_files/empty_patt
+-honvc test_files/empty_file test_files/multi_patt
+-honvc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-honvc test_files/empty_patt
+-honvc test_files/empty_patt test_files/multi_patt
+-honvc test_files/multi_patt
+-honvl test_files/empty_file
+-honvl test_files/empty_file test_files/empty_patt
+-honvl test_files/empty_file test_files/multi_patt
+-honvl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-honvl test_files/empty_patt
+-honvl test_files/empty_patt test_files/multi_patt
+-honvl test_files/multi_patt
+-hnovcl test_files/empty_file
+-hnovcl test_files/empty_file test_files/empty_patt
+-hnovcl test_files/empty_file test_files/multi_patt
+-hnovcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hnovcl test_files/empty_patt
+-hnovcl test_files/empty_patt test_files/multi_patt
+-hnovcl test_files/multi_patt
+-c test_files/empty_file
+-c test_files/empty_file test_files/empty_patt
+-c test_files/empty_file test_files/multi_patt
+-c test_files/empty_file test_files/empty_patt test_files/multi_patt
+-c test_files/empty_patt
+-c test_files/empty_patt test_files/multi_patt
+-c test_files/multi_patt
+-cl test_files/empty_file
+-cl test_files/empty_file test_files/empty_patt
+-cl test_files/empty_file test_files/multi_patt
+-cl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-cl test_files/empty_patt
+-cl test_files/empty_patt test_files/multi_patt
+-cl test_files/multi_patt
+-nc test_files/empty_file
+-nc test_files/empty_file test_files/empty_patt
+-nc test_files/empty_file test_files/multi_patt
+-nc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-nc test_files/empty_patt
+-nc test_files/empty_patt test_files/multi_patt
+-nc test_files/multi_patt
+-hc test_files/empty_file
+-hc test_files/empty_file test_files/empty_patt
+-hc test_files/empty_file test_files/multi_patt
+-hc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hc test_files/empty_patt
+-hc test_files/empty_patt test_files/multi_patt
+-hc test_files/multi_patt
+-oc test_files/empty_file
+-oc test_files/empty_file test_files/empty_patt
+-oc test_files/empty_file test_files/multi_patt
+-oc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-oc test_files/empty_patt
+-oc test_files/empty_patt test_files/multi_patt
+-oc test_files/multi_patt
+-ncl test_files/empty_file
+-ncl test_files/empty_file test_files/empty_patt
+-ncl test_files/empty_file test_files/multi_patt
+-ncl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-ncl test_files/empty_patt
+-ncl test_files/empty_patt test_files/multi_patt
+-ncl test_files/multi_patt
+-hcl test_files/empty_file
+-hcl test_files/empty_file test_files/empty_patt
+-hcl test_files/empty_file test_files/multi_patt
+-hcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hcl test_files/empty_patt
+-hcl test_files/empty_patt test_files/multi_patt
+-hcl test_files/multi_patt
+-ocl test_files/empty_file
+-ocl test_files/empty_file test_files/empty_patt
+-ocl test_files/empty_file test_files/multi_patt
+-ocl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-ocl test_files/empty_patt
+-ocl test_files/empty_patt test_files/multi_patt
+-ocl test_files/multi_patt
+-nhc test_files/empty_file
+-nhc test_files/empty_file test_files/empty_patt
+-nhc test_files/empty_file test_files/multi_patt
+-nhc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-nhc test_files/empty_patt
+-nhc test_files/empty_patt test_files/multi_patt
+-nhc test_files/multi_patt
+-noc test_files/empty_file
+-noc test_files/empty_file test_files/empty_patt
+-noc test_files/empty_file test_files/multi_patt
+-noc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-noc test_files/empty_patt
+-noc test_files/empty_patt test_files/multi_patt
+-noc test_files/multi_patt
+-hoc test_files/empty_file
+-hoc test_files/empty_file test_files/empty_patt
+-hoc test_files/empty_file test_files/multi_patt
+-hoc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hoc test_files/empty_patt
+-hoc test_files/empty_patt test_files/multi_patt
+-hoc test_files/multi_patt
+-nhcl test_files/empty_file
+-nhcl test_files/empty_file test_files/empty_patt
+-nhcl test_files/empty_file test_files/multi_patt
+-nhcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-nhcl test_files/empty_patt
+-nhcl test_files/empty_patt test_files/multi_patt
+-nhcl test_files/multi_patt
+-nocl test_files/empty_file
+-nocl test_files/empty_file test_files/empty_patt
+-nocl test_files/empty_file test_files/multi_patt
+-nocl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-nocl test_files/empty_patt
+-nocl test_files/empty_patt test_files/multi_patt
+-nocl test_files/multi_patt
+-hocl test_files/empty_file
+-hocl test_files/empty_file test_files/empty_patt
+-hocl test_files/empty_file test_files/multi_patt
+-hocl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hocl test_files/empty_patt
+-hocl test_files/empty_patt test_files/multi_patt
+-hocl test_files/multi_patt
+-onhc test_files/empty_file
+-onhc test_files/empty_file test_files/empty_patt
+-onhc test_files/empty_file test_files/multi_patt
+-onhc test_files/empty_file test_files/empty_patt test_files/multi_patt
+-onhc test_files/empty_patt
+-onhc test_files/empty_patt test_files/multi_patt
+-onhc test_files/multi_patt
+-honcl test_files/empty_file
+-honcl test_files/empty_file test_files/empty_patt
+-honcl test_files/empty_file test_files/multi_patt
+-honcl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-honcl test_files/empty_patt
+-honcl test_files/empty_patt test_files/multi_patt
+-honcl test_files/multi_patt
+-l test_files/empty_file
+-l test_files/empty_file test_files/empty_patt
+-l test_files/empty_file test_files/multi_patt
+-l test_files/empty_file test_files/empty_patt test_files/multi_patt
+-l test_files/empty_patt
+-l test_files/empty_patt test_files/multi_patt
+-l test_files/multi_patt
+-nl test_files/empty_file
+-nl test_files/empty_file test_files/empty_patt
+-nl test_files/empty_file test_files/multi_patt
+-nl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-nl test_files/empty_patt
+-nl test_files/empty_patt test_files/multi_patt
+-nl test_files/multi_patt
+-hl test_files/empty_file
+-hl test_files/empty_file test_files/empty_patt
+-hl test_files/empty_file test_files/multi_patt
+-hl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hl test_files/empty_patt
+-hl test_files/empty_patt test_files/multi_patt
+-hl test_files/multi_patt
+-ol test_files/empty_file
+-ol test_files/empty_file test_files/empty_patt
+-ol test_files/empty_file test_files/multi_patt
+-ol test_files/empty_file test_files/empty_patt test_files/multi_patt
+-ol test_files/empty_patt
+-ol test_files/empty_patt test_files/multi_patt
+-ol test_files/multi_patt
+-hnl test_files/empty_file
+-hnl test_files/empty_file test_files/empty_patt
+-hnl test_files/empty_file test_files/multi_patt
+-hnl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hnl test_files/empty_patt
+-hnl test_files/empty_patt test_files/multi_patt
+-hnl test_files/multi_patt
+-onl test_files/empty_file
+-onl test_files/empty_file test_files/empty_patt
+-onl test_files/empty_file test_files/multi_patt
+-onl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-onl test_files/empty_patt
+-onl test_files/empty_patt test_files/multi_patt
+-onl test_files/multi_patt
+-hol test_files/empty_file
+-hol test_files/empty_file test_files/empty_patt
+-hol test_files/empty_file test_files/multi_patt
+-hol test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hol test_files/empty_patt
+-hol test_files/empty_patt test_files/multi_patt
+-hol test_files/multi_patt
+-honl test_files/empty_file
+-honl test_files/empty_file test_files/empty_patt
+-honl test_files/empty_file test_files/multi_patt
+-honl test_files/empty_file test_files/empty_patt test_files/multi_patt
+-honl test_files/empty_patt
+-honl test_files/empty_patt test_files/multi_patt
+-honl test_files/multi_patt
+-n test_files/empty_file
+-n test_files/empty_file test_files/empty_patt
+-n test_files/empty_file test_files/multi_patt
+-n test_files/empty_file test_files/empty_patt test_files/multi_patt
+-n test_files/empty_patt
+-n test_files/empty_patt test_files/multi_patt
+-n test_files/multi_patt
+-hn test_files/empty_file
+-hn test_files/empty_file test_files/empty_patt
+-hn test_files/empty_file test_files/multi_patt
+-hn test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hn test_files/empty_patt
+-hn test_files/empty_patt test_files/multi_patt
+-hn test_files/multi_patt
+-on test_files/empty_file
+-on test_files/empty_file test_files/empty_patt
+-on test_files/empty_file test_files/multi_patt
+-on test_files/empty_file test_files/empty_patt test_files/multi_patt
+-on test_files/empty_patt
+-on test_files/empty_patt test_files/multi_patt
+-on test_files/multi_patt
+-hon test_files/empty_file
+-hon test_files/empty_file test_files/empty_patt
+-hon test_files/empty_file test_files/multi_patt
+-hon test_files/empty_file test_files/empty_patt test_files/multi_patt
+-hon test_files/empty_patt
+-hon test_files/empty_patt test_files/multi_patt
+-hon test_files/multi_patt
+-h test_files/empty_file
+-h test_files/empty_file test_files/empty_patt
+-h test_files/empty_file test_files/multi_patt
+-h test_files/empty_file test_files/empty_patt test_files/multi_patt
+-h test_files/empty_patt
+-h test_files/empty_patt test_files/multi_patt
+-h test_files/multi_patt
+-ho test_files/empty_file
+-ho test_files/empty_file test_files/empty_patt
+-ho test_files/empty_file test_files/multi_patt
+-ho test_files/empty_file test_files/empty_patt test_files/multi_patt
+-ho test_files/empty_patt
+-ho test_files/empty_patt test_files/multi_patt
+-ho test_files/multi_patt
+-o test_files/empty_file
+-o test_files/empty_file test_files/empty_patt
+-o test_files/empty_file test_files/multi_patt
+-o test_files/empty_file test_files/empty_patt test_files/multi_patt
+-o test_files/empty_patt
+-o test_files/empty_patt test_files/multi_patt
+-o test_files/multi_patt
+test_files/empty_file
+test_files/empty_file test_files/empty_patt
+test_files/empty_file test_files/multi_patt
+test_files/empty_file test_files/empty_patt test_files/multi_patt
+test_files/empty_patt
+test_files/empty_patt test_files/multi_patt
+test_files/multi_patt

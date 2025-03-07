@@ -3,7 +3,7 @@ import pandas as pd
 
 
 flags = ['i', 'v', 'c', 'l', 'n', 'h', 'o']
-files = ['test_files/dummy.c', 'test_files/Makefile']
+files = ['test_files/empty_file', 'test_files/empty_patt', 'test_files/multi_patt']
 
 flags_cmb = ['-'+''.join(list(set(i))) for i in list(combinations_with_replacement(flags, len(flags)))]
 files_cmb = [' '.join(list(set(i))) for i in list(combinations_with_replacement(files, len(files)))]

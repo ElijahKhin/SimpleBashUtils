@@ -342,7 +342,7 @@ TEST (GetFlagInfo, O) {
 
 TEST (Alloc4F, EMPTY_FILE) {
 	int len = 0;
-	char* file_name = "test_files/empty_file";
+	const char* file_name = "test_files/empty_file";
 	Regex patterns;
 	patterns.file_emp = 0;
 
@@ -353,7 +353,7 @@ TEST (Alloc4F, EMPTY_FILE) {
 
 TEST (Alloc4F, EMPTY_PATTERN) {
 	int len = 0;
-	char* file_name = "test_files/empty_patt";
+	const char* file_name = "test_files/empty_patt";
 	Regex patterns;
 	patterns.patt_emp = 0;
 
@@ -364,7 +364,7 @@ TEST (Alloc4F, EMPTY_PATTERN) {
 
 TEST (Alloc4F, SEVERAL_PATTERNS) {
 	int len = 0;
-	char* file_name = "test_files/multi_patt";
+	const char* file_name = "test_files/multi_patt";
 	Regex patterns;
 	patterns.file_emp = 0;
 	patterns.patt_emp = 0;
@@ -377,7 +377,7 @@ TEST (Alloc4F, SEVERAL_PATTERNS) {
 
 TEST (Alloc4E, EMPTY_PATTERN) {
 	int len = 0;
-	char* pattern = "";
+	const char* pattern = "";
 	Regex patterns;
 	patterns.patt_emp = 0;
 	patterns.file_emp = 0;
@@ -390,7 +390,7 @@ TEST (Alloc4E, EMPTY_PATTERN) {
 
 TEST (Alloc4E, BASIC_PATTERN) {
 	int len = 0;
-	char* pattern = "pattern";
+	const char* pattern = "pattern";
 	Regex patterns;
 	patterns.patt_emp = 0;
 	patterns.file_emp = 0;
@@ -457,7 +457,7 @@ TEST (AllocFullPattern, E_SEVERAL) {
 TEST (AllocFullPattern, F_EMPTY_FILE) {
 	char **argv;
 	argv = (char **)malloc(sizeof(char *) * 5);
-	char* file_name = "";
+	const char* file_name = "";
 
 	argv[0] = (char *)malloc(100);
 	argv[1] = (char *)malloc(100);
@@ -488,7 +488,7 @@ TEST (AllocFullPattern, F_EMPTY_FILE) {
 TEST (AllocFullPattern, F_EMPTY_PATTERN) {
 	char **argv;
 	argv = (char **)malloc(sizeof(char *) * 5);
-	char* file_name = "";
+	const char* file_name = "";
 
 	argv[0] = (char *)malloc(100);
 	argv[1] = (char *)malloc(100);
@@ -519,7 +519,7 @@ TEST (AllocFullPattern, F_EMPTY_PATTERN) {
 TEST (AllocFullPattern, F_SEVERAL_PATTERNS) {
 	char **argv;
 	argv = (char **)malloc(sizeof(char *) * 5);
-	char* file_name = "";
+	const char* file_name = "";
 
 	argv[0] = (char *)malloc(100);
 	argv[1] = (char *)malloc(100);
@@ -1389,30 +1389,30 @@ TEST (ParseFlags, PATTERN_WO_EF) {
 	regfree(&patterns.regex);
 }
 
-//
-//TEST(GREP, COMBO) {
-//	std::ifstream file_combo;
-//	file_combo.open("test_files/full_coverage_combo.csv");
-//	std::string combo;
-//
-//	int i = 1;
-//	while (std::getline(file_combo, combo)) {
-//		FILE* s21_grep = popen((std::string("./s21_grep fprintf ") + combo).c_str(), "r");
-//		FILE* unx_grep = popen((std::string("grep fprintf ") + combo).c_str(), "r");
-//
-//		if (!s21_grep || !unx_grep) exit(1);
-//		char s21_c = getc(s21_grep);
-//		char unx_c = getc(unx_grep);
-//		std::cout << "grep test #" << std::setw(3) << i++ << ": " << std::setw(20) << combo.substr(0, combo.find(' ', 0)) << " ...";
-//		while (s21_c != EOF || unx_c != EOF) {
-//			ASSERT_EQ(s21_c, unx_c);
-//			s21_c = getc(s21_grep), unx_c = getc(unx_grep);
-//		}
-//		std::cout << " done ✅ " << std::endl;
-//		pclose(s21_grep);
-//		pclose(unx_grep);
-//	}
-//}
+
+TEST(GREP, COMBO) {
+	std::ifstream file_combo;
+	file_combo.open("test_files/full_coverage_combo.csv");
+	std::string combo;
+
+	int i = 1;
+	while (std::getline(file_combo, combo)) {
+		FILE* s21_grep = popen((std::string("./s21_grep pat ") + combo).c_str(), "r");
+		FILE* unx_grep = popen((std::string("grep pat ") + combo).c_str(), "r");
+
+		if (!s21_grep || !unx_grep) exit(1);
+		char s21_c = getc(s21_grep);
+		char unx_c = getc(unx_grep);
+		std::cout << "grep test #" << std::setw(3) << i++ << ": " << std::setw(20) << combo.substr(0, combo.find(' ', 0)) << " ...";
+		while (s21_c != EOF || unx_c != EOF) {
+			ASSERT_EQ(s21_c, unx_c);
+			s21_c = getc(s21_grep), unx_c = getc(unx_grep);
+		}
+		std::cout << " done ✅ " << std::endl;
+		pclose(s21_grep);
+		pclose(unx_grep);
+	}
+}
 
 int main(int argc, char** argv) {
   testing::InitGoogleTest(&argc, argv);
